@@ -8,19 +8,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Navbar() {
 	const logoRef = useRef(null);
+	const heroRef = useRef(null);
 
 	useEffect(() => {
 		gsap.set(logoRef.current, {
-			y: -(window.innerHeight / 1.65),
-			scale: 2.6,
+			y: -(window.innerHeight / 1.6),
+			scale: 2.9,
 		});
 
 		gsap.to(logoRef.current, {
 			y: 0,
 			scale: 1,
 			scrollTrigger: {
-				trigger: logoRef.current,
-				start: "top 10%",
+				trigger: heroRef.current,
+				start: "top 5vh",
 				end: "bottom top",
 				scrub: true,
 			},
@@ -36,6 +37,7 @@ function Navbar() {
 					src={heroImage}
 					alt="Hero Image"
 					className="w-full h-full object-cover"
+					ref={heroRef}
 				/>
 			</div>
 			<div className="w-full h-[100px] flex items-center justify-between padding z-[999] px-[4em] py-0 bg-wagmi-blue">
