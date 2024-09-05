@@ -1,7 +1,34 @@
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroImage from "../.././assets/images/heroImage.jpeg";
 import wagmiLogo from "../.././assets/images/wagmiLogo.svg";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Navbar() {
+	const logoRef = useRef(null);
+
+	useEffect(() => {
+		gsap.set(logoRef.current, {
+			y: -(window.innerHeight / 1.65),
+			scale: 2.6,
+		});
+
+		gsap.to(logoRef.current, {
+			y: 0,
+			scale: 1,
+			scrollTrigger: {
+				trigger: logoRef.current,
+				start: "top 10%",
+				end: "bottom top",
+				scrub: true,
+			},
+			duration: 2,
+			ease: "power1.out",
+		});
+	}, []);
+
 	return (
 		<>
 			<div className="w-full h-screen">
@@ -21,7 +48,12 @@ function Navbar() {
 					</a>
 				</div>
 				<div className="flex justify-center items-center">
-					<img className="h-20" src={wagmiLogo} alt="Wagmi Logo" />
+					<img
+						className="h-20"
+						src={wagmiLogo}
+						alt="Wagmi Logo"
+						ref={logoRef}
+					/>
 				</div>
 				<div class="items-right">
 					<a className="px-[1em] py-0" href="#">
