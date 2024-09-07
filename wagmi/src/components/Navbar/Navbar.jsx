@@ -20,32 +20,16 @@ function Navbar() {
 			scale: scaleValue,
 		});
 
-		const animation = gsap.to(logoRef.current, {
+		gsap.to(logoRef.current, {
 			y: 0,
 			scale: 1,
 			scrollTrigger: {
 				trigger: heroRef.current,
 				start: "top 5vh",
 				end: "bottom 95vh",
-				scrub: 1,
-				onUpdate: (self) => {
-					if (self.progress === 1) {
-						self.kill();
-						gsap.set(logoRef.current, {
-							y: 0,
-							scale: 1,
-						});
-					}
-				},
+				scrub: 1.5,
 			},
-			ease: "power2.Out",
-			onComplete: () => {
-				gsap.set(logoRef.current, {
-					clearProps: "all",
-					y: 0,
-					scale: 1,
-				});
-			},
+			ease: "power1.inOut",
 		});
 	};
 
