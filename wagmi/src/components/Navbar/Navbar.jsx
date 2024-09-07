@@ -20,16 +20,35 @@ function Navbar() {
 			scale: scaleValue,
 		});
 
-		gsap.to(logoRef.current, {
+		const animation = gsap.to(logoRef.current, {
 			y: 0,
 			scale: 1,
 			scrollTrigger: {
 				trigger: heroRef.current,
 				start: "top 5vh",
 				end: "bottom 95vh",
-				scrub: 2,
+				scrub: 1,
+				onUpdate: (self) => {
+					// If scrollTrigger progress reaches 1, remove the ScrollTrigger
+					if (self.progress === 1) {
+						self.kill(); // Kill the ScrollTrigger once it's complete
+						// Ensure the logo remains at its final position and scale
+						gsap.set(logoRef.current, {
+							y: 0,
+							scale: 1,
+						});
+					}
+				},
 			},
-			ease: "power1.inOut",
+			ease: "power2.Out",
+			onComplete: () => {
+				// Ensure the logo stays in its final position
+				gsap.set(logoRef.current, {
+					clearProps: "all", // Clear any inline styles applied by GSAP
+					y: 0,
+					scale: 1,
+				});
+			},
 		});
 	};
 
@@ -81,7 +100,7 @@ function Navbar() {
 
 				<div className="flex flex-grow justify-center relative">
 					<img
-						className="h-16 mx-auto"
+						className="h-16 mx-auto will-change-scroll will-change-transform"
 						src={wagmiLogo}
 						alt="Wagmi Logo"
 						ref={logoRef}
