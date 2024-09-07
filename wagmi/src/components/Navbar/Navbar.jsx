@@ -59,7 +59,7 @@ function Navbar() {
 				/>
 			</div>
 
-			<div className="w-full h-[90px] flex items-center z-[10] px-[1em] py-0 bg-wagmi-blue">
+			<div className="w-full h-[90px] flex items-center z-[10] px-[2em] py-0 bg-wagmi-blue">
 				<div className="absolute z-[12]">
 					<div className="dropdown">
 						<div tabIndex={0} role="button" className="btn btn-ghost ">
