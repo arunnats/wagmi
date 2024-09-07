@@ -27,7 +27,7 @@ function Navbar() {
 				trigger: heroRef.current,
 				start: "top 5vh",
 				end: "bottom 95vh",
-				scrub: true,
+				scrub: 1.5,
 			},
 			ease: "power1.inOut",
 		});
