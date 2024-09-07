@@ -1,3 +1,10 @@
+@font-face {
+	font-family: "gilmer";
+	src: url("/fonts/Gilmer Medium.otf") format("opentype");
+	font-weight: medium;
+	font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

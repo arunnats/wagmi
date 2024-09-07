@@ -9,11 +9,12 @@ gsap.registerPlugin(ScrollTrigger);
 function Navbar() {
 	const logoRef = useRef(null);
 	const heroRef = useRef(null);
+	const resizeTimeoutRef = useRef(null);
 
-	useEffect(() => {
+	const setLogoAnimation = () => {
 		gsap.set(logoRef.current, {
 			y: -(window.innerHeight / 1.6),
-			scale: 2.9,
+			scale: 2.6,
 		});
 
 		gsap.to(logoRef.current, {
@@ -22,12 +23,27 @@ function Navbar() {
 			scrollTrigger: {
 				trigger: heroRef.current,
 				start: "top 5vh",
-				end: "bottom top",
+				end: "bottom 95vh",
 				scrub: true,
+				markers: true,
 			},
-			duration: 2,
-			ease: "power1.out",
+			ease: "power1.inOut",
 		});
+	};
+
+	useEffect(() => {
+		setLogoAnimation();
+
+		const handleResize = () => {
+			ScrollTrigger.refresh(); // Refresh ScrollTrigger to update start/end positions
+			setLogoAnimation();
+		};
+
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
 	}, []);
 
 	return (
@@ -51,7 +67,7 @@ function Navbar() {
 				</div>
 				<div className="flex justify-center items-center">
 					<img
-						className="h-20"
+						className="h-20 mt-3"
 						src={wagmiLogo}
 						alt="Wagmi Logo"
 						ref={logoRef}

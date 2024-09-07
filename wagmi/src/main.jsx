@@ -7,7 +7,9 @@ import "./index.css";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<Navbar />
-		<Hero />
+		<div className="bg-blue">
+			<Navbar />
+			<Hero />
+		</div>
 	</StrictMode>
 );
