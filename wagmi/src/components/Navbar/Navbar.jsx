@@ -3,18 +3,21 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroImage from "../.././assets/images/heroImage.jpeg";
 import wagmiLogo from "../.././assets/images/wagmiLogo.svg";
+import hamburger from "../.././assets/images/hamburger.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Navbar() {
 	const logoRef = useRef(null);
 	const heroRef = useRef(null);
-	const resizeTimeoutRef = useRef(null);
 
 	const setLogoAnimation = () => {
+		const isMobile = window.innerWidth <= 768;
+		const scaleValue = isMobile ? 1.5 : 2.6;
+
 		gsap.set(logoRef.current, {
 			y: -(window.innerHeight / 1.6),
-			scale: 2.6,
+			scale: scaleValue,
 		});
 
 		gsap.to(logoRef.current, {
@@ -25,7 +28,6 @@ function Navbar() {
 				start: "top 5vh",
 				end: "bottom 95vh",
 				scrub: true,
-				markers: true,
 			},
 			ease: "power1.inOut",
 		});
@@ -48,7 +50,7 @@ function Navbar() {
 
 	return (
 		<>
-			<div className="w-full h-screen">
+			<div className="w-full h-screen z-[998]">
 				<img
 					src={heroImage}
 					alt="Hero Image"
@@ -56,30 +58,34 @@ function Navbar() {
 					ref={heroRef}
 				/>
 			</div>
-			<div className="w-full h-[100px] flex items-center justify-between padding z-[999] px-[4em] py-0 bg-wagmi-blue">
-				<div class="items-left">
-					<a className="px-[1em] py-0" href="#">
-						placeholder
-					</a>
-					<a className="px-[1em] py-0" href="#">
-						placeholder
-					</a>
+
+			<div className="w-full h-[90px] flex items-center z-[10] px-[1em] py-0 bg-wagmi-blue">
+				<div className="absolute z-[12]">
+					<div className="dropdown">
+						<div tabIndex={0} role="button" className="btn btn-ghost ">
+							<img src={hamburger} alt="Menu" className="w-6 h-6" />
+						</div>
+						<ul
+							tabIndex={0}
+							className="menu menu-sm dropdown-content bg-wagmi-white border-wagmi-blue border-2 rounded-[14px] z-[13] mt-6 w-52 p-1 text-black font-gilmer"
+						>
+							<li>
+								<a>Item 1</a>
+							</li>
+							<li>
+								<a>Item 2</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div className="flex justify-center items-center">
+
+				<div className="flex flex-grow justify-center relative">
 					<img
-						className="h-20 mt-3"
+						className="h-20 mx-auto"
 						src={wagmiLogo}
 						alt="Wagmi Logo"
 						ref={logoRef}
 					/>
-				</div>
-				<div class="items-right">
-					<a className="px-[1em] py-0" href="#">
-						placeholder
-					</a>
-					<a className="px-[1em] py-0" href="#">
-						placeholder
-					</a>
 				</div>
 			</div>
 		</>
