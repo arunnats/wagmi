@@ -13,7 +13,7 @@ function Navbar() {
 
 	const setLogoAnimation = () => {
 		const isMobile = window.innerWidth <= 768;
-		const scaleValue = isMobile ? 1.5 : 2;
+		const scaleValue = isMobile ? 1.5 : 2.2;
 
 		gsap.set(logoRef.current, {
 			y: -(window.innerHeight / 1.6),
@@ -81,7 +81,7 @@ function Navbar() {
 
 				<div className="flex flex-grow justify-center relative">
 					<img
-						className="h-20 mx-auto"
+						className="h-16 mx-auto"
 						src={wagmiLogo}
 						alt="Wagmi Logo"
 						ref={logoRef}
