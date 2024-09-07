@@ -29,10 +29,8 @@ function Navbar() {
 				end: "bottom 95vh",
 				scrub: 1,
 				onUpdate: (self) => {
-					// If scrollTrigger progress reaches 1, remove the ScrollTrigger
 					if (self.progress === 1) {
-						self.kill(); // Kill the ScrollTrigger once it's complete
-						// Ensure the logo remains at its final position and scale
+						self.kill();
 						gsap.set(logoRef.current, {
 							y: 0,
 							scale: 1,
@@ -42,9 +40,8 @@ function Navbar() {
 			},
 			ease: "power2.Out",
 			onComplete: () => {
-				// Ensure the logo stays in its final position
 				gsap.set(logoRef.current, {
-					clearProps: "all", // Clear any inline styles applied by GSAP
+					clearProps: "all",
 					y: 0,
 					scale: 1,
 				});
@@ -54,17 +51,6 @@ function Navbar() {
 
 	useEffect(() => {
 		setLogoAnimation();
-
-		const handleResize = () => {
-			ScrollTrigger.refresh(); // Refresh ScrollTrigger to update start/end positions
-			setLogoAnimation();
-		};
-
-		window.addEventListener("resize", handleResize);
-
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
 	}, []);
 
 	return (
