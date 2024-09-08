@@ -21,11 +21,23 @@ const ContentCards = () => {
 	const handleMouseEnterBox = (boxIndex) => {
 		if (boxIndex === 1) {
 			setIsBox1Enlarged(true);
+			setIsBox2Enlarged(false);
+			setIsBox3Enlarged(false);
+			setIsBox4Enlarged(false);
 		} else if (boxIndex === 2) {
+			setIsBox1Enlarged(false);
 			setIsBox2Enlarged(true);
+			setIsBox3Enlarged(false);
+			setIsBox4Enlarged(false);
 		} else if (boxIndex === 3) {
+			setIsBox1Enlarged(false);
+			setIsBox2Enlarged(false);
 			setIsBox3Enlarged(true);
+			setIsBox4Enlarged(false);
 		} else if (boxIndex === 4) {
+			setIsBox1Enlarged(false);
+			setIsBox2Enlarged(false);
+			setIsBox3Enlarged(false);
 			setIsBox4Enlarged(true);
 		}
 
@@ -218,13 +230,17 @@ const ContentCards = () => {
 
 	const handleMouseLeave = (boxIndex) => {
 		if (boxIndex === 1) {
-			setIsBox1Enlarged(false);
+			if (isBox2Enlarged || isBox3Enlarged || isBox4Enlarged)
+				setIsBox1Enlarged(false);
 		} else if (boxIndex === 2) {
-			setIsBox2Enlarged(false);
+			if (isBox1Enlarged || isBox3Enlarged || isBox4Enlarged)
+				setIsBox2Enlarged(false);
 		} else if (boxIndex === 3) {
-			setIsBox3Enlarged(false);
+			if (isBox2Enlarged || isBox1Enlarged || isBox4Enlarged)
+				setIsBox3Enlarged(false);
 		} else if (boxIndex === 4) {
-			setIsBox4Enlarged(false);
+			if (isBox2Enlarged || isBox3Enlarged || isBox1Enlarged)
+				setIsBox4Enlarged(false);
 		}
 
 		[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
