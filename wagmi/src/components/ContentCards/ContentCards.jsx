@@ -103,7 +103,7 @@ const ContentCards = () => {
 					ref: box2Ref,
 					width: shrinkWidth,
 					height: shrinkHeight,
-					x: enlargeWidth,
+					x: containerWidth / 2 - shrinkWidth,
 					y: 0,
 					transformOrigin: "top right",
 				},
@@ -119,8 +119,8 @@ const ContentCards = () => {
 					ref: box4Ref,
 					width: shrinkWidth,
 					height: enlargeHeight,
-					x: enlargeWidth,
-					y: shrinkHeight,
+					x: containerWidth / 2 - shrinkWidth,
+					y: -(containerHeight / 2 - shrinkHeight),
 					transformOrigin: "bottom right",
 				},
 			],
@@ -137,7 +137,7 @@ const ContentCards = () => {
 					ref: box2Ref,
 					width: enlargeWidth,
 					height: shrinkHeight,
-					x: shrinkWidth,
+					x: -(containerWidth / 2 - shrinkWidth),
 					y: 0,
 					transformOrigin: "top right",
 				},
@@ -146,15 +146,15 @@ const ContentCards = () => {
 					width: shrinkWidth,
 					height: enlargeHeight,
 					x: 0,
-					y: shrinkHeight,
+					y: -(containerHeight / 2 - shrinkHeight),
 					transformOrigin: "bottom left",
 				},
 				{
 					ref: box4Ref,
 					width: enlargeWidth,
 					height: enlargeHeight,
-					x: shrinkWidth,
-					y: shrinkHeight,
+					x: -(containerWidth / 2 - shrinkWidth),
+					y: -(containerHeight / 2 - shrinkHeight),
 					transformOrigin: "bottom right",
 				},
 			],
@@ -189,7 +189,7 @@ const ContentCards = () => {
 	};
 
 	return (
-		<div className="mb-[10vh] bg-red-400 grid grid-cols-2 grid-rows-2 gap-2 mx-auto w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[95vw] sm:h-[85vw] md:h-[75vw] lg:h-[65vw] xl:h-[55vw] 2xl:h-[50vw] text-center text-white font-gilmer">
+		<div className="mb-[10vh] bg-red-400 grid grid-cols-2 grid-rows-2 gap-2 mx-auto w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
 			{/* Box 1 */}
 			<div
 				ref={box1Ref}
