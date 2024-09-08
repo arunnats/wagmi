@@ -13,10 +13,11 @@ function Navbar() {
 
 	const setLogoAnimation = () => {
 		const isMobile = window.innerWidth <= 768;
-		const scaleValue = isMobile ? 1.5 : 2.2;
+		const scaleValue = isMobile ? 1.3 : 2.2;
+		const translateValue = isMobile ? 1.4 : 1.6;
 
 		gsap.set(logoRef.current, {
-			y: -(window.innerHeight / 1.6),
+			y: -(window.innerHeight / translateValue),
 			scale: scaleValue,
 		});
 
