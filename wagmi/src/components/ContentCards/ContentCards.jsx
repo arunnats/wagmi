@@ -18,6 +18,15 @@ const ContentCards = () => {
 		const enlargeHeight = containerHeight * 0.9;
 		const shrinkHeight = containerHeight - enlargeHeight;
 
+		const getBoxCurrentState = (boxRef) => {
+			return {
+				width: boxRef.current.offsetWidth,
+				height: boxRef.current.offsetHeight,
+				x: gsap.getProperty(boxRef.current, "x"),
+				y: gsap.getProperty(boxRef.current, "y"),
+			};
+		};
+
 		const animations = {
 			1: [
 				{
@@ -159,16 +168,32 @@ const ContentCards = () => {
 
 		animations[boxIndex].forEach(
 			({ ref, width, height, x, y, transformOrigin }) => {
-				gsap.to(ref.current, {
-					width,
-					height,
-					x,
-					y,
-					duration: 2,
-					transformOrigin,
-					ease: "power2.out",
-					overwrite: "auto",
-				});
+				const {
+					width: startWidth,
+					height: startHeight,
+					x: startX,
+					y: startY,
+				} = getBoxCurrentState(ref);
+
+				gsap.fromTo(
+					ref.current,
+					{
+						width: startWidth,
+						height: startHeight,
+						x: startX,
+						y: startY,
+						transformOrigin,
+					},
+					{
+						width,
+						height,
+						x,
+						y,
+						duration: 0.7,
+						ease: "power2.out",
+						overwrite: "auto",
+					}
+				);
 			}
 		);
 	};
@@ -181,7 +206,7 @@ const ContentCards = () => {
 				height: "100%",
 				x: 0,
 				y: 0,
-				duration: 2,
+				duration: 0.7,
 				ease: "power2.out",
 				overwrite: "auto",
 			}
