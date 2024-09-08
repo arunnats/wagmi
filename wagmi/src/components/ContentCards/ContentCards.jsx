@@ -8,6 +8,11 @@ const ContentCards = () => {
 	const box3Ref = useRef(null);
 	const box4Ref = useRef(null);
 
+	const content1Ref = useRef(null);
+	const content2Ref = useRef(null);
+	const content3Ref = useRef(null);
+	const content4Ref = useRef(null);
+
 	const handleMouseEnterBox = (boxIndex) => {
 		const containerWidth = box1Ref.current.parentElement.offsetWidth;
 		const containerHeight = box1Ref.current.parentElement.offsetHeight;
@@ -27,6 +32,12 @@ const ContentCards = () => {
 			};
 		};
 
+		const getContentCurrentState = (contentRef) => {
+			return {
+				opacity: gsap.getProperty(contentRef.current, "opacity"),
+			};
+		};
+
 		const animations = {
 			1: [
 				{
@@ -35,7 +46,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: 0,
 					y: 0,
-					transformOrigin: "top left",
 				},
 				{
 					ref: box2Ref,
@@ -43,7 +53,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: enlargeWidth - containerWidth / 2,
 					y: 0,
-					transformOrigin: "top right",
 				},
 				{
 					ref: box3Ref,
@@ -51,7 +60,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: 0,
 					y: enlargeHeight - containerHeight / 2,
-					transformOrigin: "bottom left",
 				},
 				{
 					ref: box4Ref,
@@ -59,7 +67,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: enlargeWidth - containerWidth / 2,
 					y: enlargeHeight - containerHeight / 2,
-					transformOrigin: "bottom left",
 				},
 			],
 			2: [
@@ -69,7 +76,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: 0,
 					y: 0,
-					transformOrigin: "top left",
 				},
 				{
 					ref: box2Ref,
@@ -77,7 +83,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: -(enlargeWidth - containerWidth / 2),
 					y: 0,
-					transformOrigin: "top right",
 				},
 				{
 					ref: box3Ref,
@@ -85,7 +90,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: 0,
 					y: containerHeight / 2 - shrinkHeight,
-					transformOrigin: "bottom left",
 				},
 				{
 					ref: box4Ref,
@@ -93,7 +97,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: -(enlargeWidth - containerWidth / 2),
 					y: containerHeight / 2 - shrinkHeight,
-					transformOrigin: "bottom right",
 				},
 			],
 			3: [
@@ -103,7 +106,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: 0,
 					y: 0,
-					transformOrigin: "top left",
 				},
 				{
 					ref: box2Ref,
@@ -111,7 +113,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: containerWidth / 2 - shrinkWidth,
 					y: 0,
-					transformOrigin: "top right",
 				},
 				{
 					ref: box3Ref,
@@ -119,7 +120,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: 0,
 					y: -(containerHeight / 2 - shrinkHeight),
-					transformOrigin: "bottom left",
 				},
 				{
 					ref: box4Ref,
@@ -127,7 +127,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: containerWidth / 2 - shrinkWidth,
 					y: -(containerHeight / 2 - shrinkHeight),
-					transformOrigin: "bottom right",
 				},
 			],
 			4: [
@@ -137,7 +136,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: 0,
 					y: 0,
-					transformOrigin: "top left",
 				},
 				{
 					ref: box2Ref,
@@ -145,7 +143,6 @@ const ContentCards = () => {
 					height: shrinkHeight,
 					x: -(containerWidth / 2 - shrinkWidth),
 					y: 0,
-					transformOrigin: "top right",
 				},
 				{
 					ref: box3Ref,
@@ -153,7 +150,6 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: 0,
 					y: -(containerHeight / 2 - shrinkHeight),
-					transformOrigin: "bottom left",
 				},
 				{
 					ref: box4Ref,
@@ -161,41 +157,48 @@ const ContentCards = () => {
 					height: enlargeHeight,
 					x: -(containerWidth / 2 - shrinkWidth),
 					y: -(containerHeight / 2 - shrinkHeight),
-					transformOrigin: "bottom right",
 				},
 			],
 		};
 
-		animations[boxIndex].forEach(
-			({ ref, width, height, x, y, transformOrigin }) => {
-				const {
+		const contentRefs = [content1Ref, content2Ref, content3Ref, content4Ref];
+		contentRefs.forEach((contentRef, index) => {
+			const { opacity: startOpacity } = getContentCurrentState(contentRef);
+			gsap.to(contentRef.current, {
+				opacity: index + 1 === boxIndex ? 1 : 0,
+				duration: 0.4,
+				ease: "power2.out",
+				overwrite: "auto",
+			});
+		});
+
+		animations[boxIndex].forEach(({ ref, width, height, x, y }) => {
+			const {
+				width: startWidth,
+				height: startHeight,
+				x: startX,
+				y: startY,
+			} = getBoxCurrentState(ref);
+
+			gsap.fromTo(
+				ref.current,
+				{
 					width: startWidth,
 					height: startHeight,
 					x: startX,
 					y: startY,
-				} = getBoxCurrentState(ref);
-
-				gsap.fromTo(
-					ref.current,
-					{
-						width: startWidth,
-						height: startHeight,
-						x: startX,
-						y: startY,
-						transformOrigin,
-					},
-					{
-						width,
-						height,
-						x,
-						y,
-						duration: 0.7,
-						ease: "power2.out",
-						overwrite: "auto",
-					}
-				);
-			}
-		);
+				},
+				{
+					width,
+					height,
+					x,
+					y,
+					duration: 0.7,
+					ease: "power2.out",
+					overwrite: "auto",
+				}
+			);
+		});
 	};
 
 	const handleMouseLeave = () => {
@@ -214,7 +217,6 @@ const ContentCards = () => {
 					height: currentHeight,
 					x: currentX,
 					y: currentY,
-					transformOrigin: "center",
 				},
 				{
 					width: "100%",
@@ -227,6 +229,17 @@ const ContentCards = () => {
 				}
 			);
 		});
+
+		[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
+			(contentRef) => {
+				gsap.to(contentRef.current, {
+					opacity: 1,
+					duration: 0.4,
+					ease: "power2.out",
+					overwrite: "auto",
+				});
+			}
+		);
 	};
 
 	return (
@@ -238,7 +251,7 @@ const ContentCards = () => {
 				onMouseEnter={() => handleMouseEnterBox(1)}
 				onMouseLeave={handleMouseLeave}
 			>
-				<img className="p-5" alt="" src={wagmiWorkspace} />
+				<img ref={content1Ref} className="p-5" alt="" src={wagmiWorkspace} />
 			</div>
 
 			{/* Box 2 */}
@@ -248,7 +261,9 @@ const ContentCards = () => {
 				onMouseEnter={() => handleMouseEnterBox(2)}
 				onMouseLeave={handleMouseLeave}
 			>
-				<span className="tracking-tight">Our Spaces</span>
+				<span ref={content2Ref} className="tracking-tight">
+					Our Spaces
+				</span>
 			</div>
 
 			{/* Box 3 */}
@@ -258,7 +273,9 @@ const ContentCards = () => {
 				onMouseEnter={() => handleMouseEnterBox(3)}
 				onMouseLeave={handleMouseLeave}
 			>
-				<span className="tracking-tight">Amenities</span>
+				<span ref={content3Ref} className="tracking-tight">
+					Amenities
+				</span>
 			</div>
 
 			{/* Box 4 */}
@@ -268,7 +285,9 @@ const ContentCards = () => {
 				onMouseEnter={() => handleMouseEnterBox(4)}
 				onMouseLeave={handleMouseLeave}
 			>
-				<span className="tracking-tight">Why Wagmi?</span>
+				<span ref={content4Ref} className="tracking-tight">
+					Why Wagmi?
+				</span>
 			</div>
 		</div>
 	);

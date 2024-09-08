@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import ContentCards from "./components/ContentCards/ContentCards.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 import "./index.css";
 
@@ -12,6 +13,7 @@ createRoot(document.getElementById("root")).render(
 			<Navbar />
 			<Hero />
 			<ContentCards />
+			<Footer />
 		</div>
 	</StrictMode>
 );
