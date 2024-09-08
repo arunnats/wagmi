@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 
@@ -17,6 +17,26 @@ const ContentCards = () => {
 	const [isBox2Enlarged, setIsBox2Enlarged] = useState(false);
 	const [isBox3Enlarged, setIsBox3Enlarged] = useState(false);
 	const [isBox4Enlarged, setIsBox4Enlarged] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (isBox1Enlarged) {
+				handleMouseEnterBox(1);
+			} else if (isBox2Enlarged) {
+				handleMouseEnterBox(2);
+			} else if (isBox3Enlarged) {
+				handleMouseEnterBox(3);
+			} else if (isBox4Enlarged) {
+				handleMouseEnterBox(4);
+			}
+		};
+
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [isBox1Enlarged, isBox2Enlarged, isBox3Enlarged, isBox4Enlarged]);
 
 	const handleMouseEnterBox = (boxIndex) => {
 		if (boxIndex === 1) {
