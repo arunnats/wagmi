@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 
@@ -13,7 +13,22 @@ const ContentCards = () => {
 	const content3Ref = useRef(null);
 	const content4Ref = useRef(null);
 
+	const [isBox1Enlarged, setIsBox1Enlarged] = useState(false);
+	const [isBox2Enlarged, setIsBox2Enlarged] = useState(false);
+	const [isBox3Enlarged, setIsBox3Enlarged] = useState(false);
+	const [isBox4Enlarged, setIsBox4Enlarged] = useState(false);
+
 	const handleMouseEnterBox = (boxIndex) => {
+		if (boxIndex === 1) {
+			setIsBox1Enlarged(true);
+		} else if (boxIndex === 2) {
+			setIsBox2Enlarged(true);
+		} else if (boxIndex === 3) {
+			setIsBox3Enlarged(true);
+		} else if (boxIndex === 4) {
+			setIsBox4Enlarged(true);
+		}
+
 		const containerWidth = box1Ref.current.parentElement.offsetWidth;
 		const containerHeight = box1Ref.current.parentElement.offsetHeight;
 
@@ -201,7 +216,17 @@ const ContentCards = () => {
 		});
 	};
 
-	const handleMouseLeave = () => {
+	const handleMouseLeave = (boxIndex) => {
+		if (boxIndex === 1) {
+			setIsBox1Enlarged(false);
+		} else if (boxIndex === 2) {
+			setIsBox2Enlarged(false);
+		} else if (boxIndex === 3) {
+			setIsBox3Enlarged(false);
+		} else if (boxIndex === 4) {
+			setIsBox4Enlarged(false);
+		}
+
 		[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
 			const {
 				width: currentWidth,
@@ -243,13 +268,13 @@ const ContentCards = () => {
 	};
 
 	return (
-		<div className="mb-[10vh] grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
+		<div className="mb-[10vh] grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[95vw] pr-3 sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
 			{/* Box 1 */}
 			<div
 				ref={box1Ref}
 				className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-4"
 				onMouseEnter={() => handleMouseEnterBox(1)}
-				onMouseLeave={handleMouseLeave}
+				onMouseLeave={() => handleMouseLeave(1)}
 			>
 				<img ref={content1Ref} className="p-5" alt="" src={wagmiWorkspace} />
 			</div>
@@ -259,11 +284,19 @@ const ContentCards = () => {
 				ref={box2Ref}
 				className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
 				onMouseEnter={() => handleMouseEnterBox(2)}
-				onMouseLeave={handleMouseLeave}
+				onMouseLeave={() => handleMouseLeave(2)}
 			>
-				<span ref={content2Ref} className="tracking-tight">
-					Our Spaces
-				</span>
+				<div ref={content2Ref} className="tracking-tight">
+					{isBox2Enlarged ? (
+						<div>
+							<p>Get to know our spaces</p>
+						</div>
+					) : (
+						<div>
+							<p>Our Spaces</p>
+						</div>
+					)}
+				</div>
 			</div>
 
 			{/* Box 3 */}
@@ -271,11 +304,19 @@ const ContentCards = () => {
 				ref={box3Ref}
 				className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
 				onMouseEnter={() => handleMouseEnterBox(3)}
-				onMouseLeave={handleMouseLeave}
+				onMouseLeave={() => handleMouseLeave(3)}
 			>
-				<span ref={content3Ref} className="tracking-tight">
-					Amenities
-				</span>
+				<div ref={content3Ref} className="tracking-tight">
+					{isBox3Enlarged ? (
+						<div>
+							<p>Get to know our Amenities</p>
+						</div>
+					) : (
+						<div>
+							<p>Amenities</p>
+						</div>
+					)}
+				</div>
 			</div>
 
 			{/* Box 4 */}
@@ -283,11 +324,19 @@ const ContentCards = () => {
 				ref={box4Ref}
 				className="flex justify-center items-center rounded-2xl border-wagmi-blue border-4 text-wagmi-blue"
 				onMouseEnter={() => handleMouseEnterBox(4)}
-				onMouseLeave={handleMouseLeave}
+				onMouseLeave={() => handleMouseLeave(4)}
 			>
-				<span ref={content4Ref} className="tracking-tight">
-					Why Wagmi?
-				</span>
+				<div ref={content4Ref} className="tracking-tight">
+					{isBox4Enlarged ? (
+						<div>
+							<p>Get to know why Wagmi?</p>
+						</div>
+					) : (
+						<div>
+							<p>Why Wagmi?</p>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);
