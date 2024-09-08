@@ -199,18 +199,34 @@ const ContentCards = () => {
 	};
 
 	const handleMouseLeave = () => {
-		gsap.to(
-			[box1Ref.current, box2Ref.current, box3Ref.current, box4Ref.current],
-			{
-				width: "100%",
-				height: "100%",
-				x: 0,
-				y: 0,
-				duration: 0.7,
-				ease: "power2.out",
-				overwrite: "auto",
-			}
-		);
+		[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
+			const {
+				width: currentWidth,
+				height: currentHeight,
+				x: currentX,
+				y: currentY,
+			} = getBoxCurrentState(boxRef);
+
+			gsap.fromTo(
+				boxRef.current,
+				{
+					width: currentWidth,
+					height: currentHeight,
+					x: currentX,
+					y: currentY,
+					transformOrigin: "center",
+				},
+				{
+					width: "100%",
+					height: "100%",
+					x: 0,
+					y: 0,
+					duration: 0.7,
+					ease: "power2.out",
+					overwrite: "auto",
+				}
+			);
+		});
 	};
 
 	return (
