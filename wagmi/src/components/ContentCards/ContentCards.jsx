@@ -11,8 +11,6 @@ const ContentCards = () => {
 	const handleMouseEnterBox = (boxIndex) => {
 		const containerWidth = box1Ref.current.parentElement.offsetWidth;
 		const containerHeight = box1Ref.current.parentElement.offsetHeight;
-		console.log(containerHeight);
-		console.log(containerWidth);
 
 		const enlargeWidth = containerWidth * 0.9;
 		const shrinkWidth = containerWidth - enlargeWidth;
@@ -20,7 +18,6 @@ const ContentCards = () => {
 		const enlargeHeight = containerHeight * 0.9;
 		const shrinkHeight = containerHeight - enlargeHeight;
 
-		// Define animations based on the boxIndex
 		const animations = {
 			1: [
 				{
@@ -160,21 +157,23 @@ const ContentCards = () => {
 			],
 		};
 
-		// Apply animations
-		animations[boxIndex].forEach(({ ref, width, height, x, y }) => {
-			gsap.to(ref.current, {
-				width,
-				height,
-				x,
-				y,
-				duration: 0.5,
-				ease: "power3.out",
-			});
-		});
+		animations[boxIndex].forEach(
+			({ ref, width, height, x, y, transformOrigin }) => {
+				gsap.to(ref.current, {
+					width,
+					height,
+					x,
+					y,
+					duration: 2,
+					transformOrigin,
+					ease: "power2.out",
+					overwrite: "auto",
+				});
+			}
+		);
 	};
 
 	const handleMouseLeave = () => {
-		// Reset all boxes to their original sizes and positions
 		gsap.to(
 			[box1Ref.current, box2Ref.current, box3Ref.current, box4Ref.current],
 			{
@@ -182,14 +181,15 @@ const ContentCards = () => {
 				height: "100%",
 				x: 0,
 				y: 0,
-				duration: 0.5,
-				ease: "power3.out",
+				duration: 2,
+				ease: "power2.out",
+				overwrite: "auto",
 			}
 		);
 	};
 
 	return (
-		<div className="mb-[10vh] bg-red-400 grid grid-cols-2 grid-rows-2 gap-2 mx-auto w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
+		<div className="mb-[10vh] grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
 			{/* Box 1 */}
 			<div
 				ref={box1Ref}
