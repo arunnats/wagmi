@@ -52,7 +52,7 @@ const Hero = () => {
 	}, []);
 
 	return (
-		<div className="w-full h-screen bg-wagmi-white flex flex-col items-center">
+		<div className="w-full  bg-wagmi-white flex flex-col items-center mb-[14vh]">
 			<div className="text-wagmi-blue text-center font-gilmer text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl 2xl:text-[10rem] lg:mt-[12vh] lg:mb-[14vh] md:mt-[6vh] md:mb-[8vh] mt-[5vh] mb-[7vh]">
 				<h3 ref={textRef1}>We are all</h3>
 				<h3 ref={textRef2}>gonna make it.</h3>
