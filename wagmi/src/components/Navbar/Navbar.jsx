@@ -13,7 +13,7 @@ function Navbar() {
 
 	const setLogoAnimation = () => {
 		const isMobile = window.innerWidth <= 768;
-		const scaleValue = isMobile ? 1.3 : 2.2;
+		const scaleValue = isMobile ? 2 : 2.2;
 		const translateValue = isMobile ? 1.4 : 1.6;
 
 		gsap.set(logoRef.current, {
@@ -50,7 +50,8 @@ function Navbar() {
 			</div>
 
 			<div className="w-full h-[90px] flex items-center z-[10] px-[2em] py-0 bg-wagmi-blue">
-				<div className="absolute z-[12]">
+				{/* Hamburger menu - commented for now */}
+				{/* <div className="absolute z-[12]">
 					<div className="dropdown">
 						<div tabIndex={0} role="button" className="btn btn-ghost ">
 							<img src={hamburger} alt="Menu" className="w-6 h-6" />
@@ -67,11 +68,11 @@ function Navbar() {
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div> */}
 
 				<div className="flex flex-grow justify-center relative">
 					<img
-						className="h-16 mx-auto will-change-scroll will-change-transform"
+						className="h-10 md:h-13 lg:h-16 mx-auto will-change-scroll will-change-transform"
 						src={wagmiLogo}
 						alt="Wagmi Logo"
 						ref={logoRef}
