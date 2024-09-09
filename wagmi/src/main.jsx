@@ -1,19 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Navbar from "./components/Navbar/Navbar.jsx";
-import Hero from "./components/Hero/Hero.jsx";
-import ContentCards from "./components/ContentCards/ContentCards.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+import App from "./App.jsx";
 
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<div className="bg-wagmi-white">
-			<Navbar />
-			<Hero />
-			<ContentCards />
-			<Footer />
-		</div>
+		<App />
 	</StrictMode>
 );

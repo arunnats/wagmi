@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 
-const ContentCards = () => {
+const ContentCards = ({ reset }) => {
 	const box1Ref = useRef(null);
 	const box2Ref = useRef(null);
 	const box3Ref = useRef(null);
@@ -70,6 +70,8 @@ const ContentCards = () => {
 		const enlargeHeight = containerHeight * 0.9;
 		const shrinkHeight = containerHeight - enlargeHeight;
 
+		const shrinkConst = 5;
+
 		const getBoxCurrentState = (boxRef) => {
 			return {
 				width: boxRef.current.offsetWidth,
@@ -106,14 +108,14 @@ const ContentCards = () => {
 					width: enlargeWidth,
 					height: shrinkHeight,
 					x: 0,
-					y: enlargeHeight - containerHeight / 2,
+					y: -shrinkConst + enlargeHeight - containerHeight / 2,
 				},
 				{
 					ref: box4Ref,
 					width: shrinkWidth,
 					height: shrinkHeight,
 					x: enlargeWidth - containerWidth / 2,
-					y: enlargeHeight - containerHeight / 2,
+					y: -shrinkConst + enlargeHeight - containerHeight / 2,
 				},
 			],
 			2: [
@@ -136,14 +138,14 @@ const ContentCards = () => {
 					width: shrinkWidth,
 					height: shrinkHeight,
 					x: 0,
-					y: containerHeight / 2 - shrinkHeight,
+					y: -shrinkConst + containerHeight / 2 - shrinkHeight,
 				},
 				{
 					ref: box4Ref,
 					width: enlargeWidth,
 					height: shrinkHeight,
 					x: -(enlargeWidth - containerWidth / 2),
-					y: containerHeight / 2 - shrinkHeight,
+					y: -shrinkConst + containerHeight / 2 - shrinkHeight,
 				},
 			],
 			3: [
@@ -166,14 +168,14 @@ const ContentCards = () => {
 					width: enlargeWidth,
 					height: enlargeHeight,
 					x: 0,
-					y: -(containerHeight / 2 - shrinkHeight),
+					y: -shrinkConst - (containerHeight / 2 - shrinkHeight),
 				},
 				{
 					ref: box4Ref,
 					width: shrinkWidth,
 					height: enlargeHeight,
 					x: containerWidth / 2 - shrinkWidth,
-					y: -(containerHeight / 2 - shrinkHeight),
+					y: -shrinkConst - (containerHeight / 2 - shrinkHeight),
 				},
 			],
 			4: [
@@ -196,14 +198,14 @@ const ContentCards = () => {
 					width: shrinkWidth,
 					height: enlargeHeight,
 					x: 0,
-					y: -(containerHeight / 2 - shrinkHeight),
+					y: -shrinkConst - (containerHeight / 2 - shrinkHeight),
 				},
 				{
 					ref: box4Ref,
 					width: enlargeWidth,
 					height: enlargeHeight,
 					x: -(containerWidth / 2 - shrinkWidth),
-					y: -(containerHeight / 2 - shrinkHeight),
+					y: -shrinkConst - (containerHeight / 2 - shrinkHeight),
 				},
 			],
 		};
@@ -247,6 +249,66 @@ const ContentCards = () => {
 			);
 		});
 	};
+
+	useEffect(() => {
+		const getBoxCurrentState = (boxRef) => {
+			return {
+				width: boxRef.current.offsetWidth,
+				height: boxRef.current.offsetHeight,
+				x: gsap.getProperty(boxRef.current, "x"),
+				y: gsap.getProperty(boxRef.current, "y"),
+			};
+		};
+
+		const getContentCurrentState = (contentRef) => {
+			return {
+				opacity: gsap.getProperty(contentRef.current, "opacity"),
+			};
+		};
+
+		if (reset) {
+			console.log(reset);
+
+			[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
+				const {
+					width: currentWidth,
+					height: currentHeight,
+					x: currentX,
+					y: currentY,
+				} = getBoxCurrentState(boxRef);
+
+				gsap.fromTo(
+					boxRef.current,
+					{
+						width: currentWidth,
+						height: currentHeight,
+						x: currentX,
+						y: currentY,
+					},
+					{
+						width: "100%",
+						height: "100%",
+						x: 0,
+						y: 0,
+						duration: 0.7,
+						ease: "power2.out",
+						overwrite: "auto",
+					}
+				);
+			});
+
+			[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
+				(contentRef) => {
+					gsap.to(contentRef.current, {
+						opacity: 1,
+						duration: 0.4,
+						ease: "power2.out",
+						overwrite: "auto",
+					});
+				}
+			);
+		}
+	}, [reset]);
 
 	const handleMouseLeave = (boxIndex) => {
 		if (boxIndex === 1) {

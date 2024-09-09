@@ -2,30 +2,31 @@ import React, { useState, useEffect } from "react";
 import wagmiIcon from "../../assets/images/wagmiIcon.svg";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
-const Footer = () => {
-	// Step 1: Create a state to store whether the screen is mobile or not
+const Footer = ({ onMessageChange }) => {
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-	// Step 2: Define a function to handle screen width changes
+	const handleReset = () => {
+		onMessageChange(true);
+	};
+
 	const handleResize = () => {
 		setIsMobile(window.innerWidth <= 768);
 	};
 
-	// Step 3: Use useEffect to listen to window resize events
 	useEffect(() => {
-		// Add event listener when the component mounts
 		window.addEventListener("resize", handleResize);
 
-		// Clean up the event listener when the component unmounts
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 
-	// Step 4: Conditionally render based on screen size
 	return isMobile ? (
 		<div className="flex flex-col justify-between items-center h-auto md:h-[250px] bg-wagmi-blue relative mt-[16vh] px-8 py-8">
-			<div className=" -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center">
+			<div
+				onClick={handleReset}
+				className=" -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center"
+			>
 				<img className="w-16 h-16" src={wagmiIcon} alt="WAGMI Icon" />
 			</div>
 			<div className="w-full md:w-[33vw] h-auto md:h-[200px] mb-6 md:mb-0 order-2 md:order-none -translate-y-10">
@@ -103,7 +104,10 @@ const Footer = () => {
 			{/* Center area for icon, address, and phone number */}
 			<div className="w-full md:w-[33vw] h-auto md:h-[200px] mb-6 md:mb-0">
 				<div className="text-center flex flex-col items-center">
-					<div className="absolute -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center">
+					<div
+						onClick={handleReset}
+						className="absolute -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center"
+					>
 						<img className="w-16 h-16" src={wagmiIcon} alt="WAGMI Icon" />
 					</div>
 					<div className="mt-24">
