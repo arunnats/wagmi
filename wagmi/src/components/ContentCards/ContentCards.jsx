@@ -269,6 +269,11 @@ const ContentCards = ({ reset }) => {
 		if (reset) {
 			console.log(reset);
 
+			setIsBox1Enlarged(false);
+			setIsBox2Enlarged(false);
+			setIsBox3Enlarged(false);
+			setIsBox4Enlarged(false);
+
 			[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
 				const {
 					width: currentWidth,
