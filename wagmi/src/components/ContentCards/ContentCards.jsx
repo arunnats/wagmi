@@ -253,65 +253,58 @@ const ContentCards = ({ reset }) => {
 	useEffect(() => {
 		const getBoxCurrentState = (boxRef) => {
 			return {
-				width: boxRef.current.offsetWidth,
-				height: boxRef.current.offsetHeight,
+				width: gsap.getProperty(boxRef.current, "width"),
+				height: gsap.getProperty(boxRef.current, "height"),
 				x: gsap.getProperty(boxRef.current, "x"),
 				y: gsap.getProperty(boxRef.current, "y"),
 			};
 		};
+		if (isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged) {
+			if (reset) {
+				setIsBox1Enlarged(false);
+				setIsBox2Enlarged(false);
+				setIsBox3Enlarged(false);
+				setIsBox4Enlarged(false);
 
-		const getContentCurrentState = (contentRef) => {
-			return {
-				opacity: gsap.getProperty(contentRef.current, "opacity"),
-			};
-		};
-
-		if (reset) {
-			console.log(reset);
-
-			setIsBox1Enlarged(false);
-			setIsBox2Enlarged(false);
-			setIsBox3Enlarged(false);
-			setIsBox4Enlarged(false);
-
-			[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
-				const {
-					width: currentWidth,
-					height: currentHeight,
-					x: currentX,
-					y: currentY,
-				} = getBoxCurrentState(boxRef);
-
-				gsap.fromTo(
-					boxRef.current,
-					{
+				[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
+					const {
 						width: currentWidth,
 						height: currentHeight,
 						x: currentX,
 						y: currentY,
-					},
-					{
-						width: "100%",
-						height: "100%",
-						x: 0,
-						y: 0,
-						duration: 0.7,
-						ease: "power2.out",
-						overwrite: "auto",
+					} = getBoxCurrentState(boxRef);
+
+					gsap.fromTo(
+						boxRef.current,
+						{
+							width: currentWidth,
+							height: currentHeight,
+							x: currentX,
+							y: currentY,
+						},
+						{
+							width: "100%",
+							height: "100%",
+							x: 0,
+							y: 0,
+							duration: 0.3,
+							ease: "power2.out",
+							overwrite: "auto",
+						}
+					);
+				});
+
+				[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
+					(contentRef) => {
+						gsap.to(contentRef.current, {
+							opacity: 1,
+							duration: 0.5,
+							ease: "power2.out",
+							overwrite: "auto",
+						});
 					}
 				);
-			});
-
-			[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
-				(contentRef) => {
-					gsap.to(contentRef.current, {
-						opacity: 1,
-						duration: 0.4,
-						ease: "power2.out",
-						overwrite: "auto",
-					});
-				}
-			);
+			}
 		}
 	}, [reset]);
 
