@@ -476,7 +476,7 @@ const ContentCards = ({ reset }) => {
 							</div>
 
 							<div className="flex justify-center mt-4">
-								<ButtonSmall text="See More >" href="#" />
+								<ButtonSmall text="See More >" href="#" alt={true} />
 							</div>
 						</div>
 					) : (
