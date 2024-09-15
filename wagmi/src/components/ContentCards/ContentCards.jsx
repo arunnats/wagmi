@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
+import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 const ContentCards = ({ reset }) => {
 	const box1Ref = useRef(null);
@@ -215,7 +216,8 @@ const ContentCards = ({ reset }) => {
 			const { opacity: startOpacity } = getContentCurrentState(contentRef);
 			gsap.to(contentRef.current, {
 				opacity: index + 1 === boxIndex ? 1 : 0,
-				duration: 0.4,
+				delay: index + 1 === boxIndex ? 0.3 : 0,
+				duration: index + 1 === boxIndex ? 0.5 : 0.2,
 				ease: "power2.out",
 				overwrite: "auto",
 			});
@@ -287,7 +289,7 @@ const ContentCards = ({ reset }) => {
 							height: "100%",
 							x: 0,
 							y: 0,
-							duration: 0.3,
+							duration: 0.2,
 							ease: "power2.out",
 							overwrite: "auto",
 						}
@@ -298,7 +300,7 @@ const ContentCards = ({ reset }) => {
 					(contentRef) => {
 						gsap.to(contentRef.current, {
 							opacity: 1,
-							duration: 0.5,
+							duration: 0.8,
 							ease: "power2.out",
 							overwrite: "auto",
 						});
@@ -355,7 +357,7 @@ const ContentCards = ({ reset }) => {
 			(contentRef) => {
 				gsap.to(contentRef.current, {
 					opacity: 1,
-					duration: 0.4,
+					duration: 0.6,
 					ease: "power2.out",
 					overwrite: "auto",
 				});
@@ -372,8 +374,41 @@ const ContentCards = ({ reset }) => {
 				onMouseEnter={() => handleMouseEnterBox(1)}
 				onMouseLeave={() => handleMouseLeave(1)}
 			>
-				<img ref={content1Ref} className="p-5" alt="" src={wagmiWorkspace} />
+				<div ref={content1Ref} className="tracking-tight">
+					{isBox1Enlarged ? (
+						<div className="w-full mb-10">
+							<img
+								className="mt-4 mb-2 mx-auto p-5"
+								alt=""
+								src={wagmiWorkspace}
+							/>
+							<div className="mx-auto w-[70%]">
+								{" "}
+								<p className="text-justify text-wagmi-blue font-gilmer">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
+									pharetra.
+								</p>
+							</div>
+
+							<div className="flex justify-center mt-4">
+								<ButtonSmall text="See More >" href="#" />
+							</div>
+						</div>
+					) : (
+						<img className="p-10" alt="" src={wagmiWorkspace} />
+					)}
+				</div>
 			</div>
+
+			{/* <div
+				ref={box1Ref}
+				className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-4"
+				onMouseEnter={() => handleMouseEnterBox(1)}
+				onMouseLeave={() => handleMouseLeave(1)}
+			>
+				<img ref={content1Ref} className="p-10" alt="" src={wagmiWorkspace} />
+			</div> */}
 
 			{/* Box 2 */}
 			<div
@@ -384,11 +419,32 @@ const ContentCards = ({ reset }) => {
 			>
 				<div ref={content2Ref} className="tracking-tight">
 					{isBox2Enlarged ? (
-						<div>
-							<p>Get to know our spaces</p>
+						<div className="w-full mb-10">
+							<img
+								className="mt-4 mb-2 mx-auto p-5"
+								alt=""
+								src={wagmiWorkspace}
+							/>
+							<div className="mx-auto w-[70%]">
+								{" "}
+								<p className="text-justify text-wagmi-white font-gilmer">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
+									pharetra.
+								</p>
+							</div>
+
+							<div className="flex justify-center mt-4">
+								<ButtonSmall text="See More >" href="#" alt={true} />
+							</div>
 						</div>
 					) : (
 						<div>
+							<img
+								className="w-[70%] mx-auto m-4"
+								alt=""
+								src={wagmiWorkspace}
+							/>
 							<p>Our Spaces</p>
 						</div>
 					)}
@@ -404,11 +460,32 @@ const ContentCards = ({ reset }) => {
 			>
 				<div ref={content3Ref} className="tracking-tight">
 					{isBox3Enlarged ? (
-						<div>
-							<p>Get to know our Amenities</p>
+						<div className="w-full mb-10">
+							<img
+								className="mt-4 mb-2 mx-auto p-5"
+								alt=""
+								src={wagmiWorkspace}
+							/>
+							<div className="mx-auto w-[70%]">
+								{" "}
+								<p className="text-justify text-wagmi-white font-gilmer">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
+									pharetra.
+								</p>
+							</div>
+
+							<div className="flex justify-center mt-4">
+								<ButtonSmall text="See More >" href="#" />
+							</div>
 						</div>
 					) : (
 						<div>
+							<img
+								className="w-[70%] mx-auto m-4"
+								alt=""
+								src={wagmiWorkspace}
+							/>
 							<p>Amenities</p>
 						</div>
 					)}
@@ -424,11 +501,32 @@ const ContentCards = ({ reset }) => {
 			>
 				<div ref={content4Ref} className="tracking-tight">
 					{isBox4Enlarged ? (
-						<div>
-							<p>Get to know why Wagmi?</p>
+						<div className="w-full mb-10">
+							<img
+								className="mt-4 mb-2 mx-auto p-5"
+								alt=""
+								src={wagmiWorkspace}
+							/>
+							<div className="mx-auto w-[70%]">
+								{" "}
+								<p className="text-justify text-wagmi-blue font-gilmer">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
+									pharetra.
+								</p>
+							</div>
+
+							<div className="flex justify-center mt-4">
+								<ButtonSmall text="See More >" href="#" />
+							</div>
 						</div>
 					) : (
 						<div>
+							<img
+								className="w-[70%] mx-auto m-4"
+								alt=""
+								src={wagmiWorkspace}
+							/>
 							<p>Why Wagmi?</p>
 						</div>
 					)}
