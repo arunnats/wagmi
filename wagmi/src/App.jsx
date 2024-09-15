@@ -3,6 +3,9 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import ContentCards from "./components/ContentCards/ContentCards.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import OurSpaces from "./components/Content/OurSpaces.jsx";
+import Amenities from "./components/Content/Amenities.jsx";
+
 import "./index.css";
 
 const App = () => {
@@ -24,6 +27,8 @@ const App = () => {
 			<Navbar />
 			<Hero />
 			<ContentCards reset={click} />
+			<OurSpaces />
+			<Amenities />
 			<Footer onMessageChange={handleMessageChange} />
 		</div>
 	);
