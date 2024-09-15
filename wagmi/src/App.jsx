@@ -5,6 +5,7 @@ import ContentCards from "./components/ContentCards/ContentCards.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import OurSpaces from "./components/Content/OurSpaces.jsx";
 import Amenities from "./components/Content/Amenities.jsx";
+import WhyChoose from "./components/Content/WhyChoose.jsx";
 
 import "./index.css";
 
@@ -29,6 +30,7 @@ const App = () => {
 			<ContentCards reset={click} />
 			<OurSpaces />
 			<Amenities />
+			<WhyChoose />
 			<Footer onMessageChange={handleMessageChange} />
 		</div>
 	);
