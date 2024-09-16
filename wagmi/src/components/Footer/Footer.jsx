@@ -55,7 +55,7 @@ const Footer = ({ onMessageChange }) => {
 
 			<div className="w-full mx-auto h-[250px] mb-6 md:mb-0 order-3 md:order-none -translate-y-10">
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31437.43213844723!2d76.20789489389806!3d9.960641200487823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b086d314f0b178d%3A0xc545233f390db43b!2sFort%20Kochi%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1725822611924!5m2!1sen!2sin"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125723.03798811416!2d76.18794436249999!3d10.029651800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080db04c123b35%3A0xe19a01b52d0d578b!2sAN%20Square!5e0!3m2!1sen!2sin!4v1726514530596!5m2!1sen!2sin"
 					width="100%"
 					height="100%"
 					style={{ border: "0" }}
@@ -102,7 +102,7 @@ const Footer = ({ onMessageChange }) => {
 			{/* Google Map on the left */}
 			<div className="w-full md:w-[30vw] h-[200px]  mb-6 md:mb-0">
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31437.43213844723!2d76.20789489389806!3d9.960641200487823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b086d314f0b178d%3A0xc545233f390db43b!2sFort%20Kochi%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1725822611924!5m2!1sen!2sin"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125723.03798811416!2d76.18794436249999!3d10.029651800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080db04c123b35%3A0xe19a01b52d0d578b!2sAN%20Square!5e0!3m2!1sen!2sin!4v1726514530596!5m2!1sen!2sin"
 					width="70%"
 					height="100%"
 					style={{ border: "0" }}
