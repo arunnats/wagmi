@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import OurSpaces from "./components/Content/OurSpaces.jsx";
 import Amenities from "./components/Content/Amenities.jsx";
 import WhyChoose from "./components/Content/WhyChoose.jsx";
+import JoinUs from "./components/Content/JoinUs.jsx";
 
 import "./index.css";
 
@@ -31,6 +32,7 @@ const App = () => {
 			<OurSpaces />
 			<Amenities />
 			<WhyChoose />
+			<JoinUs />
 			<Footer onMessageChange={handleMessageChange} />
 		</div>
 	);

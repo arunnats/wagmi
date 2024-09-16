@@ -53,14 +53,24 @@ const Hero = () => {
 
 	return (
 		<div className="w-full  bg-wagmi-white flex flex-col items-center lg:mb-[10vh] md:mb-[8vh] mb-[7vh]">
-			<div className="text-wagmi-blue text-center font-gilmer text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl 2xl:text-[10rem] lg:mt-[13vh] lg:mb-[13vh] md:mt-[7vh] md:mb-[9vh] mt-[6vh] mb-[8vh]">
-				<h3 ref={textRef1}>We're All</h3>
-				<h3 ref={textRef2}>Gonna Make It.</h3>
-				<h3 className="text-md sm:text-l md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl px-10 mt-[6vh]">
-					At Wagmi, we believe that collaboration and community
+			<div className="text-wagmi-blue text-center font-gilmer  lg:mt-[13vh] lg:mb-[13vh] md:mt-[7vh] md:mb-[9vh] mt-[6vh] mb-[8vh]">
+				<h3
+					className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl 2xl:text-[10rem]"
+					ref={textRef1}
+				>
+					We're All
 				</h3>
-				<h3 className="text-md sm:text-l md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl px-10">
-					are the cornerstones of success.
+				<h3
+					className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl 2xl:text-[10rem]"
+					ref={textRef2}
+				>
+					Gonna Make It.
+				</h3>
+				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4 mt-[2vh] md:mt-[6vh]">
+					At Wagmi, we believe that collaboration and
+				</h3>
+				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4">
+					community are the cornerstones of success.
 				</h3>
 			</div>
 			<ButtonLong text="Explore our workspace" href="#" />
