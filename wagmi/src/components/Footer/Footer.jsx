@@ -33,10 +33,21 @@ const Footer = ({ onMessageChange }) => {
 				<div className="text-center flex flex-col items-center">
 					<div className="mt-[2vh]">
 						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg">
-							123 Wagmi St, Kochi, Kerala
+							2nd Floor , AN Square, Unichira Thoppil Rd, Edappally, Kochi,
+							Kerala 682021
 						</p>
-						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg">
-							Phone: +91 12345 67890
+						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg mb-1">
+							<a href="tel:+918129988389" className="hover:underline">
+								Phone: +91 81299 88389
+							</a>
+						</p>
+						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg mb-1">
+							<a
+								href="mailto:admin@wagmiworkspace.com"
+								className="hover:underline"
+							>
+								Email: admin@wagmiworkspace.com
+							</a>
 						</p>
 					</div>
 				</div>
@@ -110,12 +121,23 @@ const Footer = ({ onMessageChange }) => {
 					>
 						<img className="w-16 h-16" src={wagmiIcon} alt="WAGMI Icon" />
 					</div>
-					<div className="mt-24">
-						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg">
-							123 Wagmi St, Kochi, Kerala
+					<div className="mt-16">
+						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg mb-1">
+							2nd Floor , AN Square, Unichira Thoppil Rd, Edappally, Kochi,
+							Kerala 682021
 						</p>
-						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg">
-							Phone: +91 12345 67890
+						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg mb-1">
+							<a href="tel:+918129988389" className="hover:underline">
+								Phone: +91 81299 88389
+							</a>
+						</p>
+						<p className="text-wagmi-white font-semibold font-gilmer text-sm sm:text-base lg:text-lg mb-1">
+							<a
+								href="mailto:admin@wagmiworkspace.com"
+								className="hover:underline"
+							>
+								Email: admin@wagmiworkspace.com
+							</a>
 						</p>
 					</div>
 				</div>
