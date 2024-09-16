@@ -385,15 +385,17 @@ const ContentCards = ({ reset }) => {
 							<div className="mx-auto w-[70%]">
 								{" "}
 								<p className="text-justify text-wagmi-blue font-gilmer">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
-									pharetra.
+									Discover and transform the way you work with WAGMI, your
+									premier coworking and managed office space provider in Kochi.
+									At WAGMI, we redefine the workspace experience with modern,
+									flexible environments that cater to today’s dynamic work
+									culture.
 								</p>
 							</div>
 
-							<div className="flex justify-center mt-4">
+							{/* <div className="flex justify-center mt-4">
 								<ButtonSmall text="See More >" href="#" />
-							</div>
+							</div> */}
 						</div>
 					) : (
 						<img className="p-10" alt="" src={wagmiWorkspace} />

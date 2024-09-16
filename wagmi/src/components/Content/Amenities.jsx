@@ -1,5 +1,5 @@
 import React from "react";
-import CardComponent from "../Card/Card";
+import SmallerCard from "../Card/SmallerCard";
 
 const Amenities = () => {
 	const cardData = [
@@ -33,23 +33,42 @@ const Amenities = () => {
 			title: "Security Facilities",
 			text: "Description 6",
 		},
+		{
+			imageUrl: "https://via.placeholder.com/150x200",
+			title: "Security Facilities",
+			text: "Description 6",
+		},
+		{
+			imageUrl: "https://via.placeholder.com/150x200",
+			title: "Security Facilities",
+			text: "Description 6",
+		},
 	];
 
 	return (
 		<>
-			<div className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl lg:mt-[5vh] lg:mb-[8vh] md:mt-[3vh] md:mb-[7vh] mt-[3vh] mb-[7vh]">
-				<h3>Amenities</h3>
-			</div>
-			<div className="flex flex-wrap justify-center gap-6 sm:flex-col md:flex-row">
-				{cardData.map((card, index) => (
-					<div key={index}>
-						<CardComponent
-							imageUrl={card.imageUrl}
-							title={card.title}
-							text={card.text}
+			<div className="w-[90vw] mx-auto flex flex-col md:flex-row items-center justify-center">
+				<div className="w-full md:w-[50%] flex justify-center ">
+					<div className="relative w-[80vw] h-[83.3912vw] md:w-[43.17vw] md:h-[45vw] rounded-[14px] overflow-hidden border-solid bg-wagmi-blue p-3">
+						<div className="text-wagmi-white text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl my-4">
+							<h3>Amenities</h3>
+						</div>
+						<img
+							src="https://via.placeholder.com/150x200" // Replace with actual image URL
+							alt="Our Spaces"
+							className="w-auto h-[75%] overflow-hidden object-cover rounded-[14px] mx-auto mt-[2vw]"
 						/>
 					</div>
-				))}
+				</div>
+
+				<div className="w-[80vw] md:w-[50%] flex flex-wrap justify-center gap-[2vw] md:gap-[.4vw] mt-4 md:mt-0">
+					{/* Small cards with title and content */}
+					{cardData.map((card, index) => (
+						<div key={index}>
+							<SmallerCard title={card.title} content={card.content} />
+						</div>
+					))}
+				</div>
 			</div>
 		</>
 	);
