@@ -378,13 +378,12 @@ const ContentCards = ({ reset }) => {
 					{isBox1Enlarged ? (
 						<div className="w-full mb-10">
 							<img
-								className="mt-4 mb-2 mx-auto p-5"
+								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<div className="mx-auto w-[70%]">
-								{" "}
-								<p className="text-justify text-wagmi-blue font-gilmer">
+							<div className="mx-auto w-[80%] text-wagmi-blue">
+								<p className="text-justify text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
 									Discover and transform the way you work with WAGMI, your
 									premier coworking and managed office space provider in Kochi.
 									At WAGMI, we redefine the workspace experience with modern,
@@ -392,25 +391,16 @@ const ContentCards = ({ reset }) => {
 									culture.
 								</p>
 							</div>
-
-							{/* <div className="flex justify-center mt-4">
-								<ButtonSmall text="See More >" href="#" />
-							</div> */}
 						</div>
 					) : (
-						<img className="p-10" alt="" src={wagmiWorkspace} />
+						<img
+							className="p-10 w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%]"
+							alt=""
+							src={wagmiWorkspace}
+						/>
 					)}
 				</div>
 			</div>
-
-			{/* <div
-				ref={box1Ref}
-				className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-4"
-				onMouseEnter={() => handleMouseEnterBox(1)}
-				onMouseLeave={() => handleMouseLeave(1)}
-			>
-				<img ref={content1Ref} className="p-10" alt="" src={wagmiWorkspace} />
-			</div> */}
 
 			{/* Box 2 */}
 			<div
@@ -423,19 +413,17 @@ const ContentCards = ({ reset }) => {
 					{isBox2Enlarged ? (
 						<div className="w-full mb-10">
 							<img
-								className="mt-4 mb-2 mx-auto p-5"
+								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<div className="mx-auto w-[70%]">
-								{" "}
-								<p className="text-justify text-wagmi-white font-gilmer">
+							<div className="mx-auto w-[80%]">
+								<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
 									pharetra.
 								</p>
 							</div>
-
 							<div className="flex justify-center mt-4">
 								<ButtonSmall text="See More >" href="#" alt={true} />
 							</div>
@@ -443,11 +431,13 @@ const ContentCards = ({ reset }) => {
 					) : (
 						<div>
 							<img
-								className="w-[70%] mx-auto m-4"
+								className="w-[60%] mx-auto h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] m-4"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<p>Our Spaces</p>
+							<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
+								Our Spaces
+							</p>
 						</div>
 					)}
 				</div>
@@ -464,19 +454,17 @@ const ContentCards = ({ reset }) => {
 					{isBox3Enlarged ? (
 						<div className="w-full mb-10">
 							<img
-								className="mt-4 mb-2 mx-auto p-5"
+								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<div className="mx-auto w-[70%]">
-								{" "}
-								<p className="text-justify text-wagmi-white font-gilmer">
+							<div className="mx-auto w-[80%]">
+								<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
 									pharetra.
 								</p>
 							</div>
-
 							<div className="flex justify-center mt-4">
 								<ButtonSmall text="See More >" href="#" alt={true} />
 							</div>
@@ -484,11 +472,13 @@ const ContentCards = ({ reset }) => {
 					) : (
 						<div>
 							<img
-								className="w-[70%] mx-auto m-4"
+								className="w-[60%] mx-auto h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] m-4"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<p>Amenities</p>
+							<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
+								Amenities
+							</p>
 						</div>
 					)}
 				</div>
@@ -505,19 +495,17 @@ const ContentCards = ({ reset }) => {
 					{isBox4Enlarged ? (
 						<div className="w-full mb-10">
 							<img
-								className="mt-4 mb-2 mx-auto p-5"
+								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<div className="mx-auto w-[70%]">
-								{" "}
-								<p className="text-justify text-wagmi-blue font-gilmer">
+							<div className="mx-auto w-[80%]">
+								<p className="text-justify text-wagmi-blue text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
 									pharetra.
 								</p>
 							</div>
-
 							<div className="flex justify-center mt-4">
 								<ButtonSmall text="See More >" href="#" />
 							</div>
@@ -525,11 +513,13 @@ const ContentCards = ({ reset }) => {
 					) : (
 						<div>
 							<img
-								className="w-[70%] mx-auto m-4"
+								className="w-[60%] mx-auto h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] m-4"
 								alt=""
 								src={wagmiWorkspace}
 							/>
-							<p>Why Wagmi?</p>
+							<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
+								Why Wagmi?
+							</p>
 						</div>
 					)}
 				</div>
