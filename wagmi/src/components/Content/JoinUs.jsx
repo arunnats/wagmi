@@ -16,12 +16,12 @@ const JoinUs = () => {
 							innovators and professionals and take the next step in your
 							business journey with us.
 						</h3>
-						<p className=" text-wagmi-blue font-semibold font-gilmer text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 mt-4">
+						<p className=" text-black font-semibold font-gilmer text-lg md:text-xl lg:text-2xl xl:text-3xl my-1 mt-4">
 							<a href="tel:+918129988389" className="hover:underline">
 								Phone: +91 81299 88389
 							</a>
 						</p>
-						<p className=" text-wagmi-blue font-semibold font-gilmer text-lg md:text-xl lg:text-2xl xl:text-3xl my-1">
+						<p className=" text-black font-semibold font-gilmer text-lg md:text-xl lg:text-2xl xl:text-3xl my-1">
 							<a
 								href="mailto:admin@wagmiworkspace.com"
 								className="hover:underline"
