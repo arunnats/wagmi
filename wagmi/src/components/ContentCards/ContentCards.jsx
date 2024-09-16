@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
-const ContentCards = ({ reset }) => {
+const ContentCards = ({ yes }) => {
 	const box1Ref = useRef(null);
 	const box2Ref = useRef(null);
 	const box3Ref = useRef(null);
@@ -18,6 +18,7 @@ const ContentCards = ({ reset }) => {
 	const [isBox2Enlarged, setIsBox2Enlarged] = useState(false);
 	const [isBox3Enlarged, setIsBox3Enlarged] = useState(false);
 	const [isBox4Enlarged, setIsBox4Enlarged] = useState(false);
+	const [reset, setReset] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -252,7 +253,12 @@ const ContentCards = ({ reset }) => {
 		});
 	};
 
-	useEffect(() => {
+	const handleReset = () => {
+		setIsBox1Enlarged(false);
+		setIsBox2Enlarged(false);
+		setIsBox3Enlarged(false);
+		setIsBox4Enlarged(false);
+
 		const getBoxCurrentState = (boxRef) => {
 			return {
 				width: gsap.getProperty(boxRef.current, "width"),
@@ -261,54 +267,46 @@ const ContentCards = ({ reset }) => {
 				y: gsap.getProperty(boxRef.current, "y"),
 			};
 		};
-		if (isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged) {
-			if (reset) {
-				setIsBox1Enlarged(false);
-				setIsBox2Enlarged(false);
-				setIsBox3Enlarged(false);
-				setIsBox4Enlarged(false);
 
-				[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
-					const {
-						width: currentWidth,
-						height: currentHeight,
-						x: currentX,
-						y: currentY,
-					} = getBoxCurrentState(boxRef);
+		[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
+			const {
+				width: currentWidth,
+				height: currentHeight,
+				x: currentX,
+				y: currentY,
+			} = getBoxCurrentState(boxRef);
 
-					gsap.fromTo(
-						boxRef.current,
-						{
-							width: currentWidth,
-							height: currentHeight,
-							x: currentX,
-							y: currentY,
-						},
-						{
-							width: "100%",
-							height: "100%",
-							x: 0,
-							y: 0,
-							duration: 0.2,
-							ease: "power2.out",
-							overwrite: "auto",
-						}
-					);
+			gsap.fromTo(
+				boxRef.current,
+				{
+					width: currentWidth,
+					height: currentHeight,
+					x: currentX,
+					y: currentY,
+				},
+				{
+					width: "100%",
+					height: "100%",
+					x: 0,
+					y: 0,
+					duration: 0.2,
+					ease: "power2.out",
+					overwrite: "auto",
+				}
+			);
+		});
+
+		[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
+			(contentRef) => {
+				gsap.to(contentRef.current, {
+					opacity: 1,
+					duration: 0.8,
+					ease: "power2.out",
+					overwrite: "auto",
 				});
-
-				[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
-					(contentRef) => {
-						gsap.to(contentRef.current, {
-							opacity: 1,
-							duration: 0.8,
-							ease: "power2.out",
-							overwrite: "auto",
-						});
-					}
-				);
 			}
-		}
-	}, [reset]);
+		);
+	};
 
 	const handleMouseLeave = (boxIndex) => {
 		if (boxIndex === 1) {
@@ -366,162 +364,188 @@ const ContentCards = ({ reset }) => {
 	};
 
 	return (
-		<div className="mb-[10vh] grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[95vw] pr-3 sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
-			{/* Box 1 */}
-			<div
-				ref={box1Ref}
-				className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-4"
-				onMouseEnter={() => handleMouseEnterBox(1)}
-				onMouseLeave={() => handleMouseLeave(1)}
-			>
-				<div ref={content1Ref} className="tracking-tight">
-					{isBox1Enlarged ? (
-						<div className="w-full mb-10">
-							<img
-								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<div className="mx-auto w-[80%] text-wagmi-blue">
-								<p className="text-justify text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-									Discover and transform the way you work with WAGMI, your
-									premier coworking and managed office space provider in Kochi.
-									At WAGMI, we redefine the workspace experience with modern,
-									flexible environments that cater to today’s dynamic work
-									culture.
-								</p>
-							</div>
-						</div>
-					) : (
-						<img
-							className="p-10 w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%]"
-							alt=""
-							src={wagmiWorkspace}
-						/>
-					)}
-				</div>
-			</div>
+		<div className="">
+			{isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged ? (
+				<>
+					<button
+						onClick={() => handleReset()}
+						className="my-3 mx-auto mt-4 w-[300px] h-[50px] rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white"
+					>
+						<h2 className="text-[18px] font-gilmer text-wagmi-blue">
+							Click to reset.
+						</h2>
+					</button>
+				</>
+			) : (
+				<>
+					<div className="my-3 mx-auto w-[300px] h-[50px] rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white">
+						<h2 className="text-[18px] font-gilmer text-wagmi-blue">
+							{" "}
+							Click on the boxes to expand.
+						</h2>
+					</div>
+				</>
+			)}
 
-			{/* Box 2 */}
-			<div
-				ref={box2Ref}
-				className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
-				onMouseEnter={() => handleMouseEnterBox(2)}
-				onMouseLeave={() => handleMouseLeave(2)}
-			>
-				<div ref={content2Ref} className="tracking-tight">
-					{isBox2Enlarged ? (
-						<div className="w-full mb-10">
-							<img
-								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<div className="mx-auto w-[80%]">
-								<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
-									pharetra.
-								</p>
+			<div className="mb-[10vh] grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[95vw] pr-3 sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
+				{/* Box 1 */}
+				<div
+					ref={box1Ref}
+					className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-4"
+					onMouseEnter={() => handleMouseEnterBox(1)}
+					onMouseLeave={() => handleMouseLeave(1)}
+				>
+					<div ref={content1Ref} className="tracking-tight">
+						{isBox1Enlarged ? (
+							<div className="w-full mb-10">
+								<img
+									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<div className="mx-auto w-[80%] text-wagmi-blue">
+									<p className="text-justify text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
+										Discover and transform the way you work with WAGMI, your
+										premier coworking and managed office space provider in
+										Kochi. At WAGMI, we redefine the workspace experience with
+										modern, flexible environments that cater to today’s dynamic
+										work culture.
+									</p>
+								</div>
 							</div>
-							<div className="flex justify-center mt-4">
-								<ButtonSmall text="See More >" href="#" alt={true} />
+						) : (
+							<div>
+								<img
+									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
+									alt=""
+									src={wagmiWorkspace}
+								/>
 							</div>
-						</div>
-					) : (
-						<div>
-							<img
-								className="w-[60%] mx-auto h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] m-4"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
-								Our Spaces
-							</p>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
-			</div>
 
-			{/* Box 3 */}
-			<div
-				ref={box3Ref}
-				className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
-				onMouseEnter={() => handleMouseEnterBox(3)}
-				onMouseLeave={() => handleMouseLeave(3)}
-			>
-				<div ref={content3Ref} className="tracking-tight">
-					{isBox3Enlarged ? (
-						<div className="w-full mb-10">
-							<img
-								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<div className="mx-auto w-[80%]">
-								<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
-									pharetra.
+				{/* Box 2 */}
+				<div
+					ref={box2Ref}
+					className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
+					onMouseEnter={() => handleMouseEnterBox(2)}
+					onMouseLeave={() => handleMouseLeave(2)}
+				>
+					<div ref={content2Ref} className="tracking-tight">
+						{isBox2Enlarged ? (
+							<div className="w-full mb-10">
+								<img
+									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<div className="mx-auto w-[80%]">
+									<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Curabitur fermentum quam id metus volutpat, nec laoreet
+										tortor pharetra.
+									</p>
+								</div>
+								<div className="flex justify-center mt-4">
+									<ButtonSmall text="See More >" href="#" alt={true} />
+								</div>
+							</div>
+						) : (
+							<div>
+								<img
+									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
+									Our Spaces
 								</p>
 							</div>
-							<div className="flex justify-center mt-4">
-								<ButtonSmall text="See More >" href="#" alt={true} />
-							</div>
-						</div>
-					) : (
-						<div>
-							<img
-								className="w-[60%] mx-auto h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] m-4"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
-								Amenities
-							</p>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
-			</div>
 
-			{/* Box 4 */}
-			<div
-				ref={box4Ref}
-				className="flex justify-center items-center rounded-2xl border-wagmi-blue border-4 text-wagmi-blue"
-				onMouseEnter={() => handleMouseEnterBox(4)}
-				onMouseLeave={() => handleMouseLeave(4)}
-			>
-				<div ref={content4Ref} className="tracking-tight">
-					{isBox4Enlarged ? (
-						<div className="w-full mb-10">
-							<img
-								className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<div className="mx-auto w-[80%]">
-								<p className="text-justify text-wagmi-blue text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Curabitur fermentum quam id metus volutpat, nec laoreet tortor
-									pharetra.
+				{/* Box 3 */}
+				<div
+					ref={box3Ref}
+					className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
+					onMouseEnter={() => handleMouseEnterBox(3)}
+					onMouseLeave={() => handleMouseLeave(3)}
+				>
+					<div ref={content3Ref} className="tracking-tight">
+						{isBox3Enlarged ? (
+							<div className="w-full mb-10">
+								<img
+									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<div className="mx-auto w-[80%]">
+									<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Curabitur fermentum quam id metus volutpat, nec laoreet
+										tortor pharetra.
+									</p>
+								</div>
+								<div className="flex justify-center mt-4">
+									<ButtonSmall text="See More >" href="#" alt={true} />
+								</div>
+							</div>
+						) : (
+							<div>
+								<img
+									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
+									Amenities
 								</p>
 							</div>
-							<div className="flex justify-center mt-4">
-								<ButtonSmall text="See More >" href="#" />
+						)}
+					</div>
+				</div>
+
+				{/* Box 4 */}
+				<div
+					ref={box4Ref}
+					className="flex justify-center items-center rounded-2xl border-wagmi-blue border-4 text-wagmi-blue"
+					onMouseEnter={() => handleMouseEnterBox(4)}
+					onMouseLeave={() => handleMouseLeave(4)}
+				>
+					<div ref={content4Ref} className="tracking-tight">
+						{isBox4Enlarged ? (
+							<div className="w-full mb-10">
+								<img
+									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<div className="mx-auto w-[80%]">
+									<p className="text-justify text-wagmi-blue text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Curabitur fermentum quam id metus volutpat, nec laoreet
+										tortor pharetra.
+									</p>
+								</div>
+								<div className="flex justify-center mt-4">
+									<ButtonSmall text="See More >" href="#" />
+								</div>
 							</div>
-						</div>
-					) : (
-						<div>
-							<img
-								className="w-[60%] mx-auto h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] m-4"
-								alt=""
-								src={wagmiWorkspace}
-							/>
-							<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
-								Why Wagmi?
-							</p>
-						</div>
-					)}
+						) : (
+							<div>
+								<img
+									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
+									alt=""
+									src={wagmiWorkspace}
+								/>
+								<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
+									Why Wagmi?
+								</p>
+							</div>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

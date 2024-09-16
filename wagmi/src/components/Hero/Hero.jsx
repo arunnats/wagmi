@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ButtonLong from "../ButtonLong/ButtonLong";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,8 +51,8 @@ const Hero = () => {
 	}, []);
 
 	return (
-		<div className="w-full  bg-wagmi-white flex flex-col items-center lg:mb-[10vh] md:mb-[8vh] mb-[7vh]">
-			<div className="text-wagmi-blue text-center font-gilmer  lg:mt-[13vh] lg:mb-[13vh] md:mt-[7vh] md:mb-[9vh] mt-[6vh] mb-[8vh]">
+		<div className="w-full  bg-wagmi-white flex flex-col items-center lg:mb-[5vh] md:mb-[3vh] mb-[2vh]">
+			<div className="text-wagmi-blue text-center font-gilmer  lg:mt-[13vh] lg:mb-[5vh] md:mt-[7vh] md:mb-[3vh] mt-[6vh] mb-[2vh]">
 				<h3
 					className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl 2xl:text-[10rem]"
 					ref={textRef1}
@@ -66,14 +65,13 @@ const Hero = () => {
 				>
 					Gonna Make It.
 				</h3>
-				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4 mt-[2vh] md:mt-[6vh]">
-					At Wagmi, we believe that collaboration and
+				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-2 mt-[2vh] md:mt-[6vh]">
+					At Wagmi, we believe that collaboration
 				</h3>
 				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4">
-					community are the cornerstones of success.
+					and community are the cornerstones of success.
 				</h3>
 			</div>
-			<ButtonLong text="Explore our workspace" href="#" />
 		</div>
 	);
 };
