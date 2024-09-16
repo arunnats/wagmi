@@ -10,7 +10,7 @@ const ContentCard = ({ title, text, alt }) => {
 			}`}
 		>
 			<div className="relative w-full h-full rounded-[10px] overflow-hidden flex flex-col">
-				<div className="flex flex-col p-[1.8vw] md:p-[1.2vw] text-center">
+				<div className="flex flex-col p-[1.8vw] md:p-[1.2vw] text-center ">
 					<h2
 						className={`${
 							alt ? "text-wagmi-white" : "text-wagmi-blue"
@@ -20,7 +20,7 @@ const ContentCard = ({ title, text, alt }) => {
 					</h2>
 				</div>
 
-				<div className="flex flex-col p-[2vw] md:p-[1.5vw]">
+				<div className="flex flex-col px-[2vw] md:px-[1.5vw] ">
 					<p
 						className={`${
 							alt ? "text-wagmi-white" : "text-wagmi-blue"
