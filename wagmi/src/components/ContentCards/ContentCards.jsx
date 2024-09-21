@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
+import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 const ContentCards = ({ yes }) => {
@@ -520,7 +521,7 @@ const ContentCards = ({ yes }) => {
 								<img
 									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 									alt=""
-									src={wagmiWorkspace}
+									src={wagmiSpaces}
 								/>
 								<div className="mx-auto w-[80%]">
 									<p className="text-justify text-wagmi-blue text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
@@ -538,10 +539,10 @@ const ContentCards = ({ yes }) => {
 								<img
 									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
 									alt=""
-									src={wagmiWorkspace}
+									src={wagmiSpaces}
 								/>
 								<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
-									Why Wagmi?
+									Our Spaces
 								</p>
 							</div>
 						)}
