@@ -37,7 +37,7 @@ const WhyChoose = () => {
 
 	return (
 		<>
-			<div className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl lg:mt-[5vh] lg:mb-[8vh] md:mt-[3vh] md:mb-[7vh] mt-[3vh] mb-[7vh]">
+			<div className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl mt-[5vh] md:mt-[10vh] mb-[2vh] md:mb-[3vh]">
 				<h3>Why Choose Wagmi</h3>
 			</div>
 			<div className="mx-auto w-[90vw] flex flex-wrap justify-center gap-[1vw]  md:flex-row">

@@ -2,7 +2,7 @@ import React from "react";
 
 const CardComponent = ({ title, content }) => {
 	return (
-		<div className="relative w-[39vw] h-[21vw] md:w-[21.04vw] md:h-[10.9659vw] rounded-[14px] overflow-hidden border-wagmi-blue border-[4px] border-solid bg-wagmi-white p-[4px] flex flex-col justify-start">
+		<div className="relative w-[39vw] h-[21vw] md:w-[19.18665vw] md:h-[9.593325vw] rounded-[14px] overflow-hidden border-wagmi-blue border-[4px] border-solid bg-wagmi-white p-[4px] flex flex-col justify-start">
 			{/* Title at the top */}
 			<div className="flex flex-col items-center">
 				<h2 className="text-black text-[2.3vw] font-gilmer text-center mb-[.8vw] mt-1">

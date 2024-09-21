@@ -369,25 +369,25 @@ const ContentCards = ({ yes }) => {
 				<>
 					<button
 						onClick={() => handleReset()}
-						className="my-3 mx-auto mt-4 w-[300px] h-[50px] rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white"
+						className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white"
 					>
-						<h2 className="text-[18px] font-gilmer text-wagmi-blue">
+						<h2 className="text-sm md:text-[18px] font-gilmer text-wagmi-blue">
 							Click to reset.
 						</h2>
 					</button>
 				</>
 			) : (
 				<>
-					<div className="my-3 mx-auto w-[300px] h-[50px] rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white">
-						<h2 className="text-[18px] font-gilmer text-wagmi-blue">
+					<div className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white">
+						<h2 className="text-sm md:text-[18px] font-gilmer text-wagmi-blue">
 							{" "}
-							Click on the boxes to expand.
+							Click on boxes to expand.
 						</h2>
 					</div>
 				</>
 			)}
 
-			<div className="mb-[10vh] grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[95vw] pr-3 sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
+			<div className=" grid grid-cols-2 grid-rows-2 gap-4 mx-auto w-[90vw] pr-3 sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] 2xl:w-[50vw] h-[80vw] sm:h-[65vw] md:h-[55vw] lg:h-[45vw] xl:h-[40vw] 2xl:h-[35vw] text-center text-white font-gilmer">
 				{/* Box 1 */}
 				<div
 					ref={box1Ref}

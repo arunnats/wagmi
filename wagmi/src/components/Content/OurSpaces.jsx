@@ -27,10 +27,10 @@ const OurSpaces = () => {
 
 	return (
 		<>
-			<div className="w-[90vw] mx-auto flex flex-col md:flex-row items-center justify-center mb-[10vh]">
+			<div className="w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-center mt-[7vh] md:mt-[10vh]">
 				<div className="w-full md:w-[50%] flex justify-center ">
-					<div className="relative w-[80vw] h-[83.3912vw] md:w-[43.17vw] md:h-[45vw] rounded-[14px] overflow-hidden border-solid bg-wagmi-blue p-3">
-						<div className="text-wagmi-white text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl my-4">
+					<div className="relative w-[80vw] h-[83.3912vw] md:w-[38.3733vw] md:h-[40vw] rounded-[14px] overflow-hidden border-solid bg-wagmi-blue p-3">
+						<div className="text-wagmi-white text-center font-gilmer text-1xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2">
 							<h3>Our Spaces</h3>
 						</div>
 						<img
@@ -41,7 +41,7 @@ const OurSpaces = () => {
 					</div>
 				</div>
 
-				<div className="w-[80vw] md:w-[50%] flex flex-wrap justify-center gap-[4vw] md:gap-[1.2vw] mt-8 md:mt-0">
+				<div className="w-[80vw] md:w-[50%] flex flex-wrap justify-center gap-[4vw] md:gap-[.6vw] mt-2 md:mt-0">
 					{/* Small cards with title and content */}
 					{cardData.map((card, index) => (
 						<div key={index}>
