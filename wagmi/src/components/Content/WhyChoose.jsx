@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContentCard from "../Card/ContentCard";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const WhyChoose = () => {
+	const cardRefs = useRef([]);
+	const [isSmallScreen, setIsSmallScreen] = useState(false);
+
 	const cardData = [
 		{
 			title: "Prime Location:",
@@ -21,15 +28,60 @@ const WhyChoose = () => {
 		},
 	];
 
-	const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+	// Effect for animations
+	useEffect(() => {
+		const elementPositionY =
+			cardRefs.current[0].getBoundingClientRect().top + window.scrollY;
 
+		gsap.fromTo(
+			cardRefs.current[0],
+			{ y: 50, opacity: 0 },
+			{
+				y: 0,
+				opacity: 1,
+				duration: 0.6,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: cardRefs.current[0],
+					start: "top 80%",
+					end: "bottom 50%",
+					toggleActions: "play none none none",
+				},
+			}
+		);
+
+		// Animate the smaller cards
+		gsap.fromTo(
+			cardRefs.current.slice(1, cardData.length + 1), // Correct slice for cards
+			{ y: 50, opacity: 0 },
+			{
+				y: 0,
+				opacity: 1,
+				stagger: 0.15, // Apply stagger
+				duration: 0.6,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: cardRefs.current[0], // Trigger animation when the heading is in view
+					start: "top 80%",
+					end: "bottom 50%",
+					toggleActions: "play none none none",
+				},
+			}
+		);
+	}, [cardData.length]);
+
+	// Effect for screen size responsiveness
 	useEffect(() => {
 		const handleResize = () => {
 			setIsSmallScreen(window.innerWidth < 768);
 		};
 
+		// Set initial screen size
+		handleResize();
+		// Add event listener
 		window.addEventListener("resize", handleResize);
 
+		// Cleanup event listener on unmount
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
@@ -37,19 +89,25 @@ const WhyChoose = () => {
 
 	return (
 		<>
-			<div className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl mt-[5vh] md:mt-[3vh] lg:mt-[10vh] mb-[2vh] md:mb-[1.5vh] lg:mb-[3vh]">
+			{/* Heading Section */}
+			<div
+				ref={(el) => (cardRefs.current[0] = el)}
+				className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl mt-[5vh] md:mt-[3vh] lg:mt-[10vh] mb-[2vh] md:mb-[1.5vh] lg:mb-[3vh]"
+			>
 				<h3>Why Choose Wagmi</h3>
 			</div>
-			<div className="mx-auto w-[90vw] flex flex-wrap justify-center gap-[1vw]  md:flex-row">
+
+			{/* Cards Section */}
+			<div className="mx-auto w-[90vw] flex flex-wrap justify-center gap-[1vw] md:flex-row">
 				{cardData.map((card, index) => (
-					<div key={index}>
+					<div key={index} ref={(el) => (cardRefs.current[index + 1] = el)}>
 						<ContentCard
 							title={card.title}
 							text={card.text}
 							alt={
 								isSmallScreen
-									? index === 1 || index === 2
-									: index === 1 || index === 3
+									? index === 1 || index === 2 // On small screens, use alternative layout for 2nd and 3rd cards
+									: index === 1 || index === 3 // On large screens, use alternative layout for 2nd and 4th cards
 							}
 						/>
 					</div>
