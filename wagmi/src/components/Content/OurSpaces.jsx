@@ -12,7 +12,7 @@ const OurSpaces = () => {
 		{
 			title: "Hot Desk",
 			content:
-				"Ideal for those who enjoy flexibility, our hot desks offer a co-working environment where you can choose any desk and get to work. Perfect for freelancers and remote workers needing a productive space.",
+				"Ideal for those who enjoy flexibility, our hot desks offer a co-working environment where you can choose any desk and get to work. Perfect for creators needing a productive space.",
 		},
 		{
 			title: "Dedicated Desk",
