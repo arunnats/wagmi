@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
+import amenitiesSpaces from "../.././assets/images/amenitiesSpaces.svg";
+import joinSpaces from "../.././assets/images/joinSpaces.svg";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -48,13 +50,13 @@ const ContentCards = ({ yes }) => {
 	useEffect(() => {
 		const handleResize = () => {
 			if (isBox1Enlarged) {
-				handleMouseEnterBox(1);
+				handleBoxClick(1);
 			} else if (isBox2Enlarged) {
-				handleMouseEnterBox(2);
+				handleBoxClick(2);
 			} else if (isBox3Enlarged) {
-				handleMouseEnterBox(3);
+				handleBoxClick(3);
 			} else if (isBox4Enlarged) {
-				handleMouseEnterBox(4);
+				handleBoxClick(4);
 			}
 		};
 
@@ -65,7 +67,7 @@ const ContentCards = ({ yes }) => {
 		};
 	}, [isBox1Enlarged, isBox2Enlarged, isBox3Enlarged, isBox4Enlarged]);
 
-	const handleMouseEnterBox = (boxIndex) => {
+	const handleBoxClick = (boxIndex) => {
 		if (boxIndex === 1) {
 			setIsBox1Enlarged(true);
 			setIsBox2Enlarged(false);
@@ -333,61 +335,6 @@ const ContentCards = ({ yes }) => {
 		);
 	};
 
-	const handleMouseLeave = (boxIndex) => {
-		if (boxIndex === 1) {
-			if (isBox2Enlarged || isBox3Enlarged || isBox4Enlarged)
-				setIsBox1Enlarged(false);
-		} else if (boxIndex === 2) {
-			if (isBox1Enlarged || isBox3Enlarged || isBox4Enlarged)
-				setIsBox2Enlarged(false);
-		} else if (boxIndex === 3) {
-			if (isBox2Enlarged || isBox1Enlarged || isBox4Enlarged)
-				setIsBox3Enlarged(false);
-		} else if (boxIndex === 4) {
-			if (isBox2Enlarged || isBox3Enlarged || isBox1Enlarged)
-				setIsBox4Enlarged(false);
-		}
-
-		[box1Ref, box2Ref, box3Ref, box4Ref].forEach((boxRef) => {
-			const {
-				width: currentWidth,
-				height: currentHeight,
-				x: currentX,
-				y: currentY,
-			} = getBoxCurrentState(boxRef);
-
-			gsap.fromTo(
-				boxRef.current,
-				{
-					width: currentWidth,
-					height: currentHeight,
-					x: currentX,
-					y: currentY,
-				},
-				{
-					width: "100%",
-					height: "100%",
-					x: 0,
-					y: 0,
-					duration: 0.7,
-					ease: "power2.out",
-					overwrite: "auto",
-				}
-			);
-		});
-
-		[content1Ref, content2Ref, content3Ref, content4Ref].forEach(
-			(contentRef) => {
-				gsap.to(contentRef.current, {
-					opacity: 1,
-					duration: 0.6,
-					ease: "power2.out",
-					overwrite: "auto",
-				});
-			}
-		);
-	};
-
 	return (
 		<div ref={divRefWhole}>
 			{isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged ? (
@@ -403,7 +350,7 @@ const ContentCards = ({ yes }) => {
 				</>
 			) : (
 				<>
-					<div className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[2px] md:border-[3px] border-solid flex items-center justify-center bg-wagmi-white">
+					<div className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[2px] md:border-[3px] border-solid flex items-center justify-center bg-wagmi-white ">
 						<h2 className="text-sm md:text-[18px] font-gilmer text-wagmi-blue">
 							{" "}
 							Click on boxes to expand.
@@ -417,12 +364,12 @@ const ContentCards = ({ yes }) => {
 				<div
 					ref={box1Ref}
 					className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-[2px] md:border-[4px]"
-					onMouseEnter={() => handleMouseEnterBox(1)}
-					onMouseLeave={() => handleMouseLeave(1)}
+					onClick={() => handleBoxClick(1)}
+					// onMouseLeave={() => handleMouseLeave(1)}
 				>
 					<div ref={content1Ref} className="tracking-tight">
 						{isBox1Enlarged ? (
-							<div className="w-full mb-10">
+							<div className="w-full mb-10 p-5">
 								<img
 									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 									alt=""
@@ -441,7 +388,7 @@ const ContentCards = ({ yes }) => {
 						) : (
 							<div>
 								<img
-									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
+									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%] object-cover m-4 transition-transform duration-300 ease-out hover:-translate-y-[10px]"
 									alt=""
 									src={wagmiWorkspace}
 								/>
@@ -454,22 +401,21 @@ const ContentCards = ({ yes }) => {
 				<div
 					ref={box2Ref}
 					className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
-					onMouseEnter={() => handleMouseEnterBox(2)}
-					onMouseLeave={() => handleMouseLeave(2)}
+					onClick={() => handleBoxClick(2)}
+					// onMouseLeave={() => handleMouseLeave(2)}
 				>
 					<div ref={content2Ref} className="tracking-tight">
 						{isBox2Enlarged ? (
-							<div className="w-full mb-10">
+							<div className="w-full mb-10 p-5">
 								<img
 									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 									alt=""
-									src={wagmiWorkspace}
+									src={joinSpaces}
 								/>
 								<div className="mx-auto w-[80%]">
 									<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Curabitur fermentum quam id metus volutpat, nec laoreet
-										tortor pharetra.
+										Discover how WAGMI can elevate your workspace and empower
+										your business. Join our thriving community of innovators!"
 									</p>
 								</div>
 								<div className="flex justify-center mt-4">
@@ -477,14 +423,14 @@ const ContentCards = ({ yes }) => {
 								</div>
 							</div>
 						) : (
-							<div>
+							<div className="transition-transform duration-300 ease-out hover:-translate-y-[10px]">
 								<img
 									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
 									alt=""
-									src={wagmiWorkspace}
+									src={joinSpaces}
 								/>
 								<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
-									Our Spaces
+									Join us
 								</p>
 							</div>
 						)}
@@ -495,22 +441,22 @@ const ContentCards = ({ yes }) => {
 				<div
 					ref={box3Ref}
 					className="flex justify-center items-center rounded-2xl bg-wagmi-blue"
-					onMouseEnter={() => handleMouseEnterBox(3)}
-					onMouseLeave={() => handleMouseLeave(3)}
+					onClick={() => handleBoxClick(3)}
+					// onMouseLeave={() => handleMouseLeave(3)}
 				>
 					<div ref={content3Ref} className="tracking-tight">
 						{isBox3Enlarged ? (
-							<div className="w-full mb-10">
+							<div className="w-full mb-10 p-5">
 								<img
 									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 									alt=""
-									src={wagmiWorkspace}
+									src={amenitiesSpaces}
 								/>
 								<div className="mx-auto w-[80%]">
 									<p className="text-justify text-wagmi-white text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Curabitur fermentum quam id metus volutpat, nec laoreet
-										tortor pharetra.
+										Our spaces are designed with state-of-the-art technology and
+										modern amenities to enhance your workday. Learn more about
+										our dedication for your productivity and comfort
 									</p>
 								</div>
 								<div className="flex justify-center mt-4">
@@ -518,11 +464,11 @@ const ContentCards = ({ yes }) => {
 								</div>
 							</div>
 						) : (
-							<div>
+							<div className="transition-transform duration-300 ease-out hover:-translate-y-[10px]">
 								<img
 									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
 									alt=""
-									src={wagmiWorkspace}
+									src={amenitiesSpaces}
 								/>
 								<p className="text-[2vw] sm:text-[1.5vw] md:text-[1.2vw] lg:text-[1vw]">
 									Amenities
@@ -536,12 +482,12 @@ const ContentCards = ({ yes }) => {
 				<div
 					ref={box4Ref}
 					className="flex justify-center items-center rounded-2xl border-wagmi-blue border-[2px] md:border-[4px] text-wagmi-blue"
-					onMouseEnter={() => handleMouseEnterBox(4)}
-					onMouseLeave={() => handleMouseLeave(4)}
+					onClick={() => handleBoxClick(4)}
+					// onMouseLeave={() => handleMouseLeave(4)}
 				>
 					<div ref={content4Ref} className="tracking-tight">
 						{isBox4Enlarged ? (
-							<div className="w-full mb-10">
+							<div className="w-full mb-10 p-5">
 								<img
 									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 									alt=""
@@ -549,9 +495,10 @@ const ContentCards = ({ yes }) => {
 								/>
 								<div className="mx-auto w-[80%]">
 									<p className="text-justify text-wagmi-blue text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.8vw] xl:text-[1.5vw] font-gilmer">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Curabitur fermentum quam id metus volutpat, nec laoreet
-										tortor pharetra.
+										Step into a workspace that fits your style! Whether you
+										crave the flexibility of a hot desk, the consistency of a
+										dedicated desk, or the privacy of a cabin, we’ve got the
+										perfect spot for you!
 									</p>
 								</div>
 								<div className="flex justify-center mt-4">
@@ -559,7 +506,7 @@ const ContentCards = ({ yes }) => {
 								</div>
 							</div>
 						) : (
-							<div>
+							<div className="transition-transform duration-300 ease-out hover:-translate-y-[10px]">
 								<img
 									className="w-[70%] mx-auto h-auto sm:w-[65%] md:w-[60%]  m-4"
 									alt=""

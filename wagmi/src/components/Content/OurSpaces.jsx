@@ -87,7 +87,7 @@ const OurSpaces = () => {
 						<img
 							src="https://via.placeholder.com/150x200" // Replace with actual image URL
 							alt="Our Spaces"
-							className="w-auto h-[75%] overflow-hidden object-cover rounded-[14px] mx-auto mt-[2vw]"
+							className="w-auto h-[75%] overflow-hidden object-cover rounded-[14px] mx-auto mt-[2vw] transition-transform duration-300 ease-out hover:-translate-y-[10px]"
 						/>
 					</div>
 				</div>

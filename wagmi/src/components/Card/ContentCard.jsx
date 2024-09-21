@@ -3,7 +3,7 @@ import React from "react";
 const ContentCard = ({ title, text, alt }) => {
 	return (
 		<div
-			className={`relative w-[42vw] h-[58vw] md:w-[21.6vw] md:h-[33vw] rounded-[14px] overflow-hidden p-[0.3vw] ${
+			className={`relative w-[42vw] h-[58vw] md:w-[21.6vw] md:h-[33vw] rounded-[14px] overflow-hidden p-[0.3vw] transition-transform duration-300 ease-out hover:-translate-y-[10px] ${
 				alt
 					? "bg-wagmi-blue"
 					: "border-wagmi-blue bg-wagmi-white border-[2px] md:border-[4px] border-solid"
