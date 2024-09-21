@@ -21,7 +21,7 @@ const ContentCards = ({ yes }) => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: divRefWhole.current,
-					start: "top 70%",
+					start: "top 80%",
 					end: "bottom 50%",
 					toggleActions: "play none none none",
 				},

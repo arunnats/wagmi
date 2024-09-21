@@ -43,7 +43,7 @@ const WhyChoose = () => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: cardRefs.current[0],
-					start: "top 70%",
+					start: "top 80%",
 					end: "bottom 50%",
 					toggleActions: "play none none none",
 				},
@@ -62,7 +62,7 @@ const WhyChoose = () => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: cardRefs.current[0], // Trigger animation when the heading is in view
-					start: "top 70%",
+					start: "top 80%",
 					end: "bottom 50%",
 					toggleActions: "play none none none",
 				},

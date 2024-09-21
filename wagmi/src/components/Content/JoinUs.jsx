@@ -18,7 +18,7 @@ const JoinUs = () => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: joinRef.current,
-					start: "top 70%",
+					start: "top 80%",
 					end: "bottom 50%",
 					toggleActions: "play none none none",
 				},
