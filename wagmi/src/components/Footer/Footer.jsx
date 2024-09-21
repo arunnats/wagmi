@@ -22,11 +22,8 @@ const Footer = ({ onMessageChange }) => {
 	}, []);
 
 	return isMobile ? (
-		<div className="flex flex-col justify-between items-center h-auto md:h-[250px] bg-wagmi-blue relative mt-[16vh] px-8 py-8">
-			<div
-				onClick={handleReset}
-				className=" -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center"
-			>
+		<div className="flex flex-col justify-between items-center h-auto md:h-[250px] bg-wagmi-blue relative mt-[10vh] lg:mt-[16vh] px-8 py-8">
+			<div className=" -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center">
 				<img className="w-16 h-16" src={wagmiIcon} alt="WAGMI Icon" />
 			</div>
 			<div className="w-full md:w-[33vw] h-auto md:h-[200px] mb-6 md:mb-0 order-2 md:order-none -translate-y-10">
@@ -98,7 +95,7 @@ const Footer = ({ onMessageChange }) => {
 			</div>
 		</div>
 	) : (
-		<div className="flex flex-col md:flex-row justify-around items-center h-auto md:h-[250px] bg-wagmi-blue relative mt-[12vh] md:mt-[14vh] lg:mt-[18vh] px-8 py-8">
+		<div className="flex flex-col md:flex-row justify-around items-center h-auto md:h-[250px] bg-wagmi-blue relative mt-[12vh] md:mt-[10vh] lg:mt-[18vh] px-8 py-8">
 			{/* Google Map on the left */}
 			<div className="w-full md:w-[30vw] h-[200px]  mb-6 md:mb-0">
 				<iframe
@@ -115,10 +112,7 @@ const Footer = ({ onMessageChange }) => {
 			{/* Center area for icon, address, and phone number */}
 			<div className="w-full md:w-[33vw] h-auto md:h-[200px] mb-6 md:mb-0">
 				<div className="text-center flex flex-col items-center">
-					<div
-						onClick={handleReset}
-						className="absolute -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center"
-					>
+					<div className="absolute -translate-y-24 w-36 h-36 shadow-[0px_7px_24.5px_rgba(0,_0,_0,_0.25)] rounded-full bg-wagmi-blue flex justify-center items-center">
 						<img className="w-16 h-16" src={wagmiIcon} alt="WAGMI Icon" />
 					</div>
 					<div className="mt-16">

@@ -65,10 +65,10 @@ const Hero = () => {
 				>
 					Gonna Make It.
 				</h3>
-				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-2 mt-[1.5vh] lg:mt-[5vh]">
+				<h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-2 mt-[1.5vh] lg:mt-[5vh]">
 					At Wagmi, we believe that collaboration
 				</h3>
-				<h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4">
+				<h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4">
 					and community are the cornerstones of success.
 				</h3>
 			</div>

@@ -6,7 +6,7 @@ const ContentCard = ({ title, text, alt }) => {
 			className={`relative w-[42vw] h-[58vw] md:w-[21.6vw] md:h-[33vw] rounded-[14px] overflow-hidden p-[0.3vw] ${
 				alt
 					? "bg-wagmi-blue"
-					: "border-wagmi-blue bg-wagmi-white border-[4px] border-solid"
+					: "border-wagmi-blue bg-wagmi-white border-[2px] md:border-[4px] border-solid"
 			}`}
 		>
 			<div className="relative w-full h-full rounded-[10px] overflow-hidden flex flex-col">

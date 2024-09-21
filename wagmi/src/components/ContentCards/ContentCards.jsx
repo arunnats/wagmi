@@ -370,7 +370,7 @@ const ContentCards = ({ yes }) => {
 				<>
 					<button
 						onClick={() => handleReset()}
-						className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white"
+						className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[2px] md:border-[3px] border-solid flex items-center justify-center bg-wagmi-white"
 					>
 						<h2 className="text-sm md:text-[18px] font-gilmer text-wagmi-blue">
 							Click to reset.
@@ -379,7 +379,7 @@ const ContentCards = ({ yes }) => {
 				</>
 			) : (
 				<>
-					<div className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[3px] border-solid flex items-center justify-center bg-wagmi-white">
+					<div className="my-3 mx-auto w-[200px] h-[40px] rounded-[10px] md:w-[300px] md:h-[50px] md:rounded-[14px] border-wagmi-blue border-[2px] md:border-[3px] border-solid flex items-center justify-center bg-wagmi-white">
 						<h2 className="text-sm md:text-[18px] font-gilmer text-wagmi-blue">
 							{" "}
 							Click on boxes to expand.
@@ -392,7 +392,7 @@ const ContentCards = ({ yes }) => {
 				{/* Box 1 */}
 				<div
 					ref={box1Ref}
-					className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-4"
+					className="flex flex-col justify-center items-center rounded-2xl border-wagmi-blue border-[2px] md:border-[4px]"
 					onMouseEnter={() => handleMouseEnterBox(1)}
 					onMouseLeave={() => handleMouseLeave(1)}
 				>
@@ -511,7 +511,7 @@ const ContentCards = ({ yes }) => {
 				{/* Box 4 */}
 				<div
 					ref={box4Ref}
-					className="flex justify-center items-center rounded-2xl border-wagmi-blue border-4 text-wagmi-blue"
+					className="flex justify-center items-center rounded-2xl border-wagmi-blue border-[2px] md:border-[4px] text-wagmi-blue"
 					onMouseEnter={() => handleMouseEnterBox(4)}
 					onMouseLeave={() => handleMouseLeave(4)}
 				>

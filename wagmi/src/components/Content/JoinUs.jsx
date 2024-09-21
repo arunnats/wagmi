@@ -4,7 +4,7 @@ const JoinUs = () => {
 	return (
 		<>
 			<div className="w-[90vw]  mx-auto mt-[5vh] md:mt-[3vh] lg:mt-[10vh]">
-				<div className="flex flex-col  rounded-[14px] overflow-hidden border-wagmi-blue border-[4px] border-solid bg-wagmi-white p-3">
+				<div className="flex flex-col  rounded-[14px] overflow-hidden border-wagmi-blue border-[2px] md:border-[4px] border-solid bg-wagmi-white p-3">
 					<div className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl my-1 md:my-4">
 						<h3>Join the WAGMI Community!</h3>
 					</div>
