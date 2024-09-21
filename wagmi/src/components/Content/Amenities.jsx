@@ -64,7 +64,7 @@ const Amenities = () => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: cardRefs.current[0],
-					start: "top 80%",
+					start: "top 70%",
 					end: "bottom 50%",
 					toggleActions: "play none none none",
 				},
@@ -84,7 +84,7 @@ const Amenities = () => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: cardRefs.current[0],
-					start: "top 80%",
+					start: "top 70%",
 					end: "bottom 50%",
 					toggleActions: "play none none none",
 				},

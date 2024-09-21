@@ -8,11 +8,15 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
 	const textRef1 = useRef(null);
 	const textRef2 = useRef(null);
+	const textRef3 = useRef(null);
 
 	useEffect(() => {
+		// Split the text into characters for animation
 		const myText1 = new SplitType(textRef1.current, { types: "chars" });
 		const myText2 = new SplitType(textRef2.current, { types: "chars" });
+		const myText3 = new SplitType(textRef3.current, { types: "words" }); // Split textRef3 as well
 
+		// Animate textRef1
 		gsap.fromTo(
 			textRef1.current.querySelectorAll(".char"),
 			{ y: 50, opacity: 0 },
@@ -24,13 +28,14 @@ const Hero = () => {
 				ease: "power2.out",
 				scrollTrigger: {
 					trigger: textRef1.current,
-					start: "top 80%",
+					start: "top 70%",
 					end: "bottom top",
 					toggleActions: "play none none none",
 				},
 			}
 		);
 
+		// Animate textRef2
 		gsap.fromTo(
 			textRef2.current.querySelectorAll(".char"),
 			{ y: 50, opacity: 0 },
@@ -41,8 +46,27 @@ const Hero = () => {
 				duration: 0.5,
 				ease: "power2.out",
 				scrollTrigger: {
-					trigger: textRef1.current,
-					start: "top 80%",
+					trigger: textRef1.current, // Keep the trigger tied to textRef1
+					start: "top 70%",
+					end: "bottom top",
+					toggleActions: "play none none none",
+				},
+			}
+		);
+
+		// Animate textRef3
+		gsap.fromTo(
+			textRef3.current.querySelectorAll(".word"),
+			{ y: 50, opacity: 0 },
+			{
+				y: 0,
+				opacity: 1,
+				stagger: 0.1,
+				duration: 0.8,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: textRef1.current, // Keep the trigger tied to textRef1 for consistency
+					start: "top 70%",
 					end: "bottom top",
 					toggleActions: "play none none none",
 				},
@@ -65,12 +89,14 @@ const Hero = () => {
 				>
 					Gonna Make It.
 				</h3>
-				<h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-2 mt-[1.5vh] lg:mt-[5vh]">
-					At Wagmi, we believe that collaboration
-				</h3>
-				<h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4">
-					and community are the cornerstones of success.
-				</h3>
+				<div ref={textRef3}>
+					<h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-2 mt-[1.5vh] lg:mt-[5vh]">
+						At Wagmi, we believe that collaboration
+					</h3>
+					<h3 className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl px-4">
+						and community are the cornerstones of success.
+					</h3>
+				</div>
 			</div>
 		</div>
 	);

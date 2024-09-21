@@ -1,10 +1,34 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ContentCards = ({ yes }) => {
+	const divRefWhole = useRef(null);
+
+	useEffect(() => {
+		gsap.fromTo(
+			divRefWhole.current,
+			{ y: 50, opacity: 0 },
+			{
+				y: 0,
+				opacity: 1,
+				duration: 0.6,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: divRefWhole.current,
+					start: "top 70%",
+					end: "bottom 50%",
+					toggleActions: "play none none none",
+				},
+			}
+		);
+	}, []);
+
 	const box1Ref = useRef(null);
 	const box2Ref = useRef(null);
 	const box3Ref = useRef(null);
@@ -365,7 +389,7 @@ const ContentCards = ({ yes }) => {
 	};
 
 	return (
-		<div className="">
+		<div ref={divRefWhole}>
 			{isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged ? (
 				<>
 					<button
