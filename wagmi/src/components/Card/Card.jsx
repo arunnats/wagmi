@@ -11,7 +11,7 @@ const CardComponent = ({ title, content }) => {
 			</div>
 			{/* Content right below */}
 			<div className="flex-grow flex items-start justify-center">
-				<p className="text-wagmi-blue text-[2.45vw] md:text-[1.2vw] lg:text-[1.2svw] xl:text-[1.3vw] 2xl:text-[1.45vw] tracking-tighter font-gilmer text-justify px-[2vw] md:px-[1vw]">
+				<p className="text-wagmi-blue text-[2.45vw] md:text-[1.2vw] lg:text-[1.2svw] xl:text-[1.3vw] 2xl:text-[1.3vw] tracking-tighter font-gilmer text-justify px-[2vw] md:px-[1vw]">
 					{content}
 				</p>
 			</div>

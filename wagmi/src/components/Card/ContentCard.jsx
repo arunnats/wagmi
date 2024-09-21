@@ -24,7 +24,7 @@ const ContentCard = ({ title, text, alt }) => {
 					<p
 						className={`${
 							alt ? "text-wagmi-white" : "text-wagmi-blue"
-						} text-[2.45vw] md:text-[1.2vw] lg:text-[vw] xl:text-[1.3vw] 2xl:text-[1.45vw] font-gilmer text-justify`}
+						} text-[2.45vw] md:text-[1.2vw] lg:text-[vw] xl:text-[1.3vw] 2xl:text-[1.3vw] font-gilmer text-justify`}
 					>
 						{text}
 					</p>
