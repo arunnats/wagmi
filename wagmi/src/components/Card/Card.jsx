@@ -1,19 +1,30 @@
 import React from "react";
+import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
 
 const CardComponent = ({ title, content }) => {
 	return (
-		<div className="relative w-[38vw] h-[39.6108vw] md:w-[19.18665vw] md:h-[19.8vw] rounded-[14px] overflow-hidden border-wagmi-blue border-[2px] md:border-[4px] border-solid bg-wagmi-white p-[.3vw] flex flex-col justify-start transition-transform duration-300 ease-out hover:-translate-y-[10px]">
-			{/* Title at the top */}
+		<div className="relative w-[38vw] h-[39.6108vw] md:w-[19.18665vw] md:h-[20.7vw] rounded-[14px] overflow-hidden bg-wagmi-blue p-[.3vw] flex flex-col justify-start transition-transform duration-300 ease-out hover:-translate-y-[5px]">
+			{/* Title Section */}
 			<div className="flex flex-col items-center">
-				<h2 className="text-black text-[4vw] md:text-[1.1rem] lg:text-[1.3rem] xl:text-[1.6rem] font-gilmer text-center mt-1">
+				<h2 className="text-wagmi-white text-[4vw] md:text-[1.1rem] lg:text-[1.3rem] xl:text-[1.6rem] font-gilmer text-center mt-1">
 					{title}
 				</h2>
 			</div>
-			{/* Content right below */}
-			<div className="flex-grow flex items-start justify-center">
-				<p className="text-wagmi-blue text-[2.45vw] md:text-[1.2vw] lg:text-[1.2svw] xl:text-[1.3vw] 2xl:text-[1.3vw] tracking-tighter font-gilmer text-justify px-[2vw] md:px-[1vw]">
+
+			{/* Content Section */}
+			<div className="flex-grow flex items-start justify-center w-[95%]">
+				<p className="text-black text-[2.45vw] md:text-[.5vw] lg:text-[.5vw] xl:text-[1.25vw] 2xl:text-[1.3vw] tracking-tighter font-gilmer text-wrap px-[2vw] md:px-[1vw]">
 					{content}
 				</p>
+			</div>
+
+			{/* Image Section - Positioned at the Bottom Right */}
+			<div className="absolute bottom-0 right-0 w-auto h-[50%]">
+				<img
+					src={wagmiSpaces}
+					alt="Our Spaces"
+					className="w-auto h-[100%] object-cover"
+				/>
 			</div>
 		</div>
 	);

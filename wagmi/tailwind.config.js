@@ -5,7 +5,7 @@ export default {
 		extend: {
 			colors: {
 				"wagmi-blue": "#6676D2",
-				"wagmi-white": "#F5F5FA",
+				"wagmi-white": "#fbf9f4",
 			},
 			fontFamily: {
 				gilmer: ["gilmer", "sans-serif"],

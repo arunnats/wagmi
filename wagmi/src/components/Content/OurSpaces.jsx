@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CardComponent from "../Card/Card";
+import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,22 +13,22 @@ const OurSpaces = () => {
 		{
 			title: "Hot Desk",
 			content:
-				"Ideal for those who enjoy flexibility, our hot desks offer a co-working environment where you can choose any desk and get to work. Perfect for creators needing a productive space.",
+				"Flexible co-working desks for creators who need a productive space without assigned seating.",
 		},
 		{
 			title: "Dedicated Desk",
 			content:
-				"For small teams or individuals needing a consistent workspace, our dedicated desks provide a reserved spot in our co-working area, with access to all the shared amenities.",
+				"Reserved desks for small teams or individuals, with access to shared co-working amenities.",
 		},
 		{
 			title: "Private Cabin",
 			content:
-				"Our private cabins are designed for teams that need a dedicated space. Customize your cabin and enjoy the quiet and focus that comes with a private office.",
+				"Private cabins for teams needing dedicated workspace, with customization and focus in a quiet environment.",
 		},
 		{
 			title: "Virtual Office",
 			content:
-				"For businesses needing a professional presence, our virtual office services provide a business address, mail handling, and call forwarding, all without a physical office.",
+				"Professional business address with mail handling and call forwarding, without the need for a physical office.",
 		},
 	];
 
@@ -74,22 +75,20 @@ const OurSpaces = () => {
 
 	return (
 		<>
-			<div className="w-[80vw] md:w-[85vw] lg:w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-center mt-[5vh] md:mt-[3vh] lg:mt-[10vh]">
+			<div className="w-[80vw] md:w-[85vw] lg:w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-between mt-[5vh] md:mt-[3vh] lg:mt-[10vh]">
 				{/* Big card */}
-				<div className="w-full md:w-[50%] flex justify-center ">
-					<div
-						className="relative w-[80vw] h-[83.3912vw] md:w-[38.3733vw] md:h-[40vw] rounded-[14px] overflow-hidden bg-wagmi-blue p-3"
-						ref={(el) => (cardRefs.current[0] = el)} // Set big card as cardRefs[0]
-					>
-						<div className="text-wagmi-white text-center font-gilmer text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2">
-							<h3>Our Spaces</h3>
-						</div>
-						<img
-							src="https://via.placeholder.com/150x200" // Replace with actual image URL
-							alt="Our Spaces"
-							className="w-auto h-[75%] overflow-hidden object-cover rounded-[14px] mx-auto mt-[2vw] transition-transform duration-300 ease-out hover:-translate-y-[10px]"
-						/>
+				<div
+					className="relative w-[80vw] h-[83.3912vw] md:w-[36vw] md:h-[42vw] rounded-[14px]  border-wagmi-blue border-[4px] border-solid bg-wagmi-white p-3"
+					ref={(el) => (cardRefs.current[0] = el)} // Set big card as cardRefs[0]
+				>
+					<div className="text-wagmi-blue text-center font-gilmer text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2">
+						<h3>Our Spaces</h3>
 					</div>
+					<img
+						src={wagmiSpaces} // Replace with actual image URL
+						alt="Our Spaces"
+						className="w-auto h-[75%]  object-cover rounded-[14px] mx-auto mt-[13vw] md:mt-[7vw] translate-x-[50px] transition-transform duration-300 ease-out hover:-translate-y-[10px]"
+					/>
 				</div>
 
 				{/* Smaller cards */}
