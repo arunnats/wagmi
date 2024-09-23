@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import wagmiWorkspace from "../.././assets/images/wagmiWorkspace.svg";
 import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
 import amenitiesSpaces from "../.././assets/images/amenitiesSpaces.svg";
@@ -8,8 +9,12 @@ import joinSpaces from "../.././assets/images/joinSpaces.svg";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 
-const ContentCards = ({ yes }) => {
+const ContentCards = ({ yes, scrollToSection }) => {
+	const { ourSpacesRef, amenitiesRef, whyChooseRef, joinUsRef } =
+		scrollToSection;
+
 	const divRefWhole = useRef(null);
 
 	useEffect(() => {
@@ -335,6 +340,14 @@ const ContentCards = ({ yes }) => {
 		);
 	};
 
+	const scrollTo = (ref) => {
+		gsap.to(window, {
+			duration: 1.5,
+			scrollTo: { y: ref.current, autoKill: true, offsetY: 20 },
+			ease: "power3.out",
+		});
+	};
+
 	return (
 		<div ref={divRefWhole}>
 			{isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged ? (
@@ -419,7 +432,11 @@ const ContentCards = ({ yes }) => {
 									</p>
 								</div>
 								<div className="flex justify-center mt-4">
-									<ButtonSmall text="See More >" href="#" alt={true} />
+									<ButtonSmall
+										text="See More >"
+										onClick={() => scrollTo(joinUsRef)}
+										alt={true}
+									/>
 								</div>
 							</div>
 						) : (
@@ -460,7 +477,11 @@ const ContentCards = ({ yes }) => {
 									</p>
 								</div>
 								<div className="flex justify-center mt-4">
-									<ButtonSmall text="See More >" href="#" alt={true} />
+									<ButtonSmall
+										text="See More >"
+										onClick={() => scrollTo(amenitiesRef)}
+										alt={true}
+									/>
 								</div>
 							</div>
 						) : (
@@ -502,7 +523,10 @@ const ContentCards = ({ yes }) => {
 									</p>
 								</div>
 								<div className="flex justify-center mt-4">
-									<ButtonSmall text="See More >" href="#" />
+									<ButtonSmall
+										text="See More >"
+										onClick={() => scrollTo(ourSpacesRef)}
+									/>
 								</div>
 							</div>
 						) : (

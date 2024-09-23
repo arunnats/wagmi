@@ -71,7 +71,7 @@ const Footer = ({ onMessageChange }) => {
 						aria-label="Facebook"
 					>
 						<FaFacebookF size={30} />
-						<span>@wagmi</span>
+						<span>@wagmiworkspace</span>
 					</a>
 					{/* Twitter */}
 					<a
@@ -80,7 +80,7 @@ const Footer = ({ onMessageChange }) => {
 						aria-label="Twitter"
 					>
 						<FaTwitter size={30} />
-						<span>@wagmi2</span>
+						<span>@wagmiworkspace</span>
 					</a>
 					{/* Instagram */}
 					<a
@@ -89,7 +89,7 @@ const Footer = ({ onMessageChange }) => {
 						aria-label="Instagram"
 					>
 						<FaInstagram size={30} />
-						<span>@wagmi</span>
+						<span>@wagmiworkspace</span>
 					</a>
 				</div>
 			</div>
@@ -147,7 +147,7 @@ const Footer = ({ onMessageChange }) => {
 						aria-label="Facebook"
 					>
 						<FaFacebookF size={30} />
-						<span>@wagmi</span>
+						<span>@wagmiworkspace</span>
 					</a>
 					{/* Twitter */}
 					<a
@@ -156,7 +156,7 @@ const Footer = ({ onMessageChange }) => {
 						aria-label="Twitter"
 					>
 						<FaTwitter size={30} />
-						<span>@wagmi2</span>
+						<span>@wagmiworkspace</span>
 					</a>
 					{/* Instagram */}
 					<a
@@ -165,7 +165,7 @@ const Footer = ({ onMessageChange }) => {
 						aria-label="Instagram"
 					>
 						<FaInstagram size={30} />
-						<span>@wagmi</span>
+						<span>@wagmiworkspace</span>
 					</a>
 				</div>
 			</div>
