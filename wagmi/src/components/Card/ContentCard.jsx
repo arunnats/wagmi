@@ -14,7 +14,7 @@ const ContentCard = ({ title, text, alt }) => {
 					<h2
 						className={`${
 							alt ? "text-wagmi-white" : "text-wagmi-blue"
-						} text-[2.4rem] md:text-[1.6rem] lg:text-[2.1rem] xl:text-[2.2rem] font-gilmer text-base leading-8`}
+						} text-[2.4rem] md:text-[1.6rem] lg:text-[2.1rem] xl:text-[2.2rem] font-gilmerbold text-base leading-8`}
 					>
 						{title}
 					</h2>

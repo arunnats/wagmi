@@ -9,6 +9,7 @@ export default {
 			},
 			fontFamily: {
 				gilmer: ["gilmer", "sans-serif"],
+				gilmerbold: ["gilmer-bold", "sans-serif"],
 			},
 		},
 	},

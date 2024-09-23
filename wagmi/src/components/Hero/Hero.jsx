@@ -78,13 +78,13 @@ const Hero = () => {
 		<div className="w-full  bg-wagmi-white flex flex-col items-center lg:mb-[5vh] md:mb-[3vh] mb-[2vh]">
 			<div className="text-wagmi-blue text-center font-gilmer  lg:mt-[13vh] lg:mb-[5vh] md:mt-[5vh] md:mb-[1vh] mt-[6vh] mb-[2vh]">
 				<h3
-					className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl 2xl:text-[8rem]"
+					className="font-gilmerbold text-4xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl 2xl:text-[8rem]"
 					ref={textRef1}
 				>
 					We're All
 				</h3>
 				<h3
-					className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl 2xl:text-[8rem]"
+					className="font-gilmerbold text-4xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-8xl 2xl:text-[8rem]"
 					ref={textRef2}
 				>
 					Gonna Make It.

@@ -5,6 +5,13 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: "gilmer-bold";
+	src: url("/fonts/Gilmer Bold.otf") format("opentype");
+	font-weight: bold;
+	font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

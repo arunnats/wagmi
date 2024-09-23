@@ -81,7 +81,7 @@ const OurSpaces = () => {
 					className="relative w-[80vw] h-[83.3912vw] md:w-[36vw] md:h-[42vw] rounded-[14px]  border-wagmi-blue border-[4px] border-solid bg-wagmi-white p-3"
 					ref={(el) => (cardRefs.current[0] = el)} // Set big card as cardRefs[0]
 				>
-					<div className="text-wagmi-blue text-center font-gilmer text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2">
+					<div className="text-wagmi-blue text-center font-gilmerbold text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2">
 						<h3>Our Spaces</h3>
 					</div>
 					<img

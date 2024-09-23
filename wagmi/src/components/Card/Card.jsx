@@ -6,7 +6,7 @@ const CardComponent = ({ title, content }) => {
 		<div className="relative w-[38vw] h-[39.6108vw] md:w-[19.18665vw] md:h-[20.7vw] rounded-[14px] overflow-hidden bg-wagmi-blue p-[.3vw] flex flex-col justify-start transition-transform duration-300 ease-out hover:-translate-y-[5px]">
 			{/* Title Section */}
 			<div className="flex flex-col items-center">
-				<h2 className="text-wagmi-white text-[4vw] md:text-[1.1rem] lg:text-[1.3rem] xl:text-[1.6rem] font-gilmer text-center mt-1">
+				<h2 className="text-wagmi-white text-[4vw] md:text-[1.1rem] lg:text-[1.3rem] xl:text-[1.6rem] font-gilmerbold text-center mt-1">
 					{title}
 				</h2>
 			</div>

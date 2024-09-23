@@ -90,7 +90,7 @@ const Amenities = () => {
 					className="relative w-[80vw] h-[83.3912vw] md:w-[36vw] md:h-[42vw] rounded-[14px] border-solid bg-wagmi-blue p-3 "
 					ref={(el) => (cardRefs.current[0] = el)}
 				>
-					<div className="text-wagmi-white text-center font-gilmer text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2 ">
+					<div className="text-wagmi-white text-center font-gilmerbold text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-6xl my-2 ">
 						<h3>Amenities</h3>
 					</div>
 
