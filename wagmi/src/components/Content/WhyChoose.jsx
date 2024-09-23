@@ -92,9 +92,10 @@ const WhyChoose = () => {
 			{/* Heading Section */}
 			<div
 				ref={(el) => (cardRefs.current[0] = el)}
-				className="text-wagmi-blue text-center font-gilmer text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-6xl mt-[5vh] md:mt-[3vh] lg:mt-[10vh] mb-[2vh] md:mb-[1.5vh] lg:mb-[3vh]"
+				className="mx-auto w-[90vw] text-wagmi-blue font-gilmer text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-7l 2xl:text-8xl mt-[5vh] md:mt-[3vh] lg:mt-[10vh] mb-[2.5vh] md:mb-[3vh] lg:mb-[3.5vh]"
 			>
-				<h3>Why Choose Wagmi</h3>
+				<h3>Why Choose</h3>
+				<h3>Wagmi</h3>
 			</div>
 
 			{/* Cards Section */}
