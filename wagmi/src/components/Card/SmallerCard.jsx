@@ -19,7 +19,7 @@ const CardComponent = ({ title, imageUrl, index }) => {
 						<img
 							src={imageUrl}
 							alt="Our Spaces 2"
-							className="h-[16vw] md:h-[8.5vw] rounded-[14px] -translate-x-[15px] translate-y-[14px] md:-translate-x-[10px]"
+							className="h-[16vw] md:h-[8.5vw] rounded-[14px] -translate-x-[15px]  md:-translate-x-[10px]"
 						/>
 					</div>
 				);
@@ -39,7 +39,7 @@ const CardComponent = ({ title, imageUrl, index }) => {
 						<img
 							src={imageUrl}
 							alt="Our Spaces 4"
-							className="h-[16vw] md:h-[8.5vw] rounded-[14px] translate-y-[14px] md:-translate-x-[10px]"
+							className="h-[16vw] md:h-[8.5vw] rounded-[14px]  md:-translate-x-[10px]"
 						/>
 					</div>
 				);
