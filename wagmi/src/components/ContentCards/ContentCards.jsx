@@ -46,6 +46,11 @@ const ContentCards = ({ yes, scrollToSection }) => {
 	const content3Ref = useRef(null);
 	const content4Ref = useRef(null);
 
+	const contentInner1Ref = useRef(null);
+	const contentInner2Ref = useRef(null);
+	const contentInner3Ref = useRef(null);
+	const contentInner4Ref = useRef(null);
+
 	const [isBox1Enlarged, setIsBox1Enlarged] = useState(false);
 	const [isBox2Enlarged, setIsBox2Enlarged] = useState(false);
 	const [isBox3Enlarged, setIsBox3Enlarged] = useState(false);
@@ -382,7 +387,7 @@ const ContentCards = ({ yes, scrollToSection }) => {
 				>
 					<div ref={content1Ref} className="tracking-tight">
 						{isBox1Enlarged ? (
-							<div className="w-full mb-10 p-5">
+							<div>
 								<img
 									className="mt-4 mb-2 mx-auto w-[60%] h-auto sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[35%] p-5"
 									alt=""
@@ -431,7 +436,7 @@ const ContentCards = ({ yes, scrollToSection }) => {
 										your business. Join our thriving community of innovators!"
 									</p>
 								</div>
-								<div className="flex justify-center mt-4">
+								<div className="hidden lg:flex justify-center mt-4">
 									<ButtonSmall
 										text="See More >"
 										onClick={() => scrollTo(joinUsRef)}
@@ -476,7 +481,7 @@ const ContentCards = ({ yes, scrollToSection }) => {
 										our dedication for your productivity and comfort
 									</p>
 								</div>
-								<div className="flex justify-center mt-4">
+								<div className="hidden lg:flex justify-center mt-4">
 									<ButtonSmall
 										text="See More >"
 										onClick={() => scrollTo(amenitiesRef)}
@@ -522,7 +527,7 @@ const ContentCards = ({ yes, scrollToSection }) => {
 										perfect spot for you!
 									</p>
 								</div>
-								<div className="flex justify-center mt-4">
+								<div className="hidden lg:flex justify-center mt-4">
 									<ButtonSmall
 										text="See More >"
 										onClick={() => scrollTo(ourSpacesRef)}

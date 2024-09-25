@@ -63,20 +63,16 @@ const Footer = ({ onMessageChange }) => {
 			</div>
 
 			<div className="w-full  flex justify-center -translate-y-12">
-				<div className="flex flex-row md:flex-colitems -center text-wagmi-white font-gilmer space-x-4 ">
+				<div className="flex flex-col items-center text-wagmi-white font-gilmer -translate-y-5">
 					{/* Facebook */}
-					<a
-						href="#"
-						className="flex items-center space-x-2"
-						aria-label="Facebook"
-					>
+					<a href="#" className="flex items-center mb-2 " aria-label="Facebook">
 						<FaFacebookF size={30} />
 						<span>@wagmiworkspace</span>
 					</a>
 					{/* Twitter */}
 					<a
 						href="#"
-						className="flex items-center space-x-2"
+						className="flex items-center mb-2 translate-y-2"
 						aria-label="Twitter"
 					>
 						<FaTwitter size={30} />
@@ -85,7 +81,7 @@ const Footer = ({ onMessageChange }) => {
 					{/* Instagram */}
 					<a
 						href="#"
-						className="flex items-center space-x-2"
+						className="flex items-center mb-2 translate-y-4"
 						aria-label="Instagram"
 					>
 						<FaInstagram size={30} />
