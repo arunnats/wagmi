@@ -17,27 +17,27 @@ const Amenities = () => {
 
 	const cardData = [
 		{
-			imageUrl: amenitiesParking,
+			imageUrl: amenitiesWifi,
 			title: "High Speed Internet",
 		},
 		{
-			imageUrl: amenitiesPower,
+			imageUrl: amenitiesPrinter,
 			title: "Printing Services",
 		},
 		{
-			imageUrl: amenitiesPrinter,
+			imageUrl: amenitiesPower,
 			title: "Power Backup",
 		},
 		{
-			imageUrl: amenitiesRefreshments,
+			imageUrl: amenitiesParking,
 			title: "Secure Parking",
 		},
 		{
-			imageUrl: amenitiesSecurity,
+			imageUrl: amenitiesRefreshments,
 			title: "Refreshments",
 		},
 		{
-			imageUrl: amenitiesWifi,
+			imageUrl: amenitiesSecurity,
 			title: "Security Facilities",
 		},
 	];
@@ -104,7 +104,11 @@ const Amenities = () => {
 				<div className="w-[80vw] md:w-[50%] flex flex-wrap justify-center gap-[2vw] md:gap-[.52vw] mt-2 md:mt-0">
 					{cardData.map((card, index) => (
 						<div key={index} ref={(el) => (cardRefs.current[index + 1] = el)}>
-							<SmallerCard title={card.title} imageUrl={card.imageUrl} />
+							<SmallerCard
+								title={card.title}
+								imageUrl={card.imageUrl}
+								index={index + 1}
+							/>
 						</div>
 					))}
 				</div>
