@@ -354,7 +354,7 @@ const ContentCards = ({ yes, scrollToSection }) => {
 	};
 
 	return (
-		<div ref={divRefWhole}>
+		<div className="mb-[2vh] md:mb-[0vh] lg:mb-[7vh]" ref={divRefWhole}>
 			{isBox1Enlarged || isBox2Enlarged || isBox3Enlarged || isBox4Enlarged ? (
 				<>
 					<button

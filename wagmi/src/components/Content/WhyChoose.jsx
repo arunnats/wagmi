@@ -88,11 +88,11 @@ const WhyChoose = () => {
 	}, []);
 
 	return (
-		<>
+		<div className="bg-wagmi-offwhite">
 			{/* Heading Section */}
 			<div
 				ref={(el) => (cardRefs.current[0] = el)}
-				className="mx-auto w-[90vw] text-wagmi-blue font-gilmerbold text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-7l 2xl:text-8xl mt-[5vh] md:mt-[3vh] lg:mt-[10vh] mb-[2.5vh] md:mb-[3vh] lg:mb-[3.5vh]"
+				className="mx-auto w-[90vw] text-wagmi-blue font-gilmerbold text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-7l 2xl:text-8xl mb-[2.5vh] md:mb-[3vh] lg:mb-[3.5vh]"
 			>
 				<h3>Why Choose</h3>
 				<h3>Wagmi</h3>
@@ -114,7 +114,7 @@ const WhyChoose = () => {
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	);
 };
 

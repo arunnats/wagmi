@@ -7,6 +7,7 @@ import OurSpaces from "./components/Content/OurSpaces.jsx";
 import Amenities from "./components/Content/Amenities.jsx";
 import WhyChoose from "./components/Content/WhyChoose.jsx";
 import JoinUs from "./components/Content/JoinUs.jsx";
+import Spacer from "./components/Spacer/Spacer.jsx";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -45,13 +46,17 @@ const App = () => {
 				}}
 			/>
 			<div ref={ourSpacesRef}>
+				<Spacer />
 				<OurSpaces />
+				<Spacer />
 			</div>
 			<div ref={amenitiesRef}>
 				<Amenities />
 			</div>
 			<div ref={whyChooseRef}>
+				<Spacer />
 				<WhyChoose />
+				<Spacer />
 			</div>
 			<div ref={joinUsRef}>
 				<JoinUs />

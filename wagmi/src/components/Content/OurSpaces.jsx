@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CardComponent from "../Card/Card";
+import Carousel from "../Content/Carousel";
 import wagmiSpaces from "../.././assets/images/wagmiSpaces.svg";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,8 +75,8 @@ const OurSpaces = () => {
 	}, []);
 
 	return (
-		<>
-			<div className="w-[80vw] md:w-[85vw] lg:w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-between mt-[5vh] md:mt-[3vh] lg:mt-[10vh]">
+		<div className="bg-wagmi-offwhite">
+			<div className="w-[80vw] md:w-[85vw] lg:w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-between">
 				{/* Big card */}
 				<div
 					className="relative w-[80vw] h-[83.3912vw] md:w-[36vw] md:h-[42vw] rounded-[14px]  border-wagmi-blue border-[4px] border-solid bg-wagmi-white p-3"
@@ -100,7 +101,10 @@ const OurSpaces = () => {
 					))}
 				</div>
 			</div>
-		</>
+			<div>
+				<Carousel />
+			</div>
+		</div>
 	);
 };
 

@@ -84,8 +84,8 @@ const Amenities = () => {
 	}, []);
 
 	return (
-		<>
-			<div className="w-[80vw] md:w-[85vw] lg:w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-between mt-[5vh] md:mt-[3vh] lg:mt-[10vh]">
+		<div className="mb-[2vh] md:mb-[0vh] lg:mb-[7vh]">
+			<div className="w-[80vw] md:w-[85vw] lg:w-[80vw] mx-auto flex flex-col md:flex-row items-center justify-between mt-[2vh] md:mt-[0vh] lg:mt-[7vh]">
 				<div
 					className="relative w-[80vw] h-[83.3912vw] md:w-[36vw] md:h-[42vw] rounded-[14px] border-solid bg-wagmi-blue p-3 "
 					ref={(el) => (cardRefs.current[0] = el)}
@@ -113,7 +113,7 @@ const Amenities = () => {
 					))}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
