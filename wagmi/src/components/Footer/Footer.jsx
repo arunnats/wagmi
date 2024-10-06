@@ -64,23 +64,18 @@ const Footer = ({ onMessageChange }) => {
 
 			<div className="w-full  flex justify-center -translate-y-12">
 				<div className="flex flex-col items-center text-wagmi-white font-gilmer -translate-y-5">
-					{/* Facebook */}
-					<a href="#" className="flex items-center mb-2 " aria-label="Facebook">
-						<FaFacebookF size={30} />
-						<span>@wagmiworkspace</span>
-					</a>
 					{/* Twitter */}
 					<a
-						href="#"
+						href="https://x.com/Wagmiworkspace"
 						className="flex items-center mb-2 translate-y-2"
 						aria-label="Twitter"
 					>
 						<FaTwitter size={30} />
-						<span>@wagmiworkspace</span>
+						<span>@Wagmiworkspace</span>
 					</a>
 					{/* Instagram */}
 					<a
-						href="#"
+						href="https://www.instagram.com/wagmiworkspace"
 						className="flex items-center mb-2 translate-y-4"
 						aria-label="Instagram"
 					>
@@ -136,27 +131,18 @@ const Footer = ({ onMessageChange }) => {
 			{/* Social media icons on the right */}
 			<div className="w-full md:w-[30vw] h-auto flex justify-center">
 				<div className="flex flex-col items-start text-wagmi-white font-gilmer space-y-4">
-					{/* Facebook */}
-					<a
-						href="#"
-						className="flex items-center space-x-2"
-						aria-label="Facebook"
-					>
-						<FaFacebookF size={30} />
-						<span>@wagmiworkspace</span>
-					</a>
 					{/* Twitter */}
 					<a
-						href="#"
+						href="https://x.com/Wagmiworkspace"
 						className="flex items-center space-x-2"
 						aria-label="Twitter"
 					>
 						<FaTwitter size={30} />
-						<span>@wagmiworkspace</span>
+						<span>@Wagmiworkspace</span>
 					</a>
 					{/* Instagram */}
 					<a
-						href="#"
+						href="https://www.instagram.com/wagmiworkspace"
 						className="flex items-center space-x-2"
 						aria-label="Instagram"
 					>
