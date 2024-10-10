@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroImage from "../.././assets/images/heroImage.webp";
+import heroImage from "../.././assets/images/heroImage.jpeg";
 import wagmiLogo from "../.././assets/images/wagmiLogo.svg";
 import hamburger from "../.././assets/images/hamburger.svg";
 
