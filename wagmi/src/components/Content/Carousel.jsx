@@ -1,59 +1,60 @@
 import React from "react";
-import one from "../../assets/images/OurSpaces/1.jpg";
-import two from "../../assets/images/OurSpaces/2.jpg";
-import three from "../../assets/images/OurSpaces/3.jpg";
-import four from "../../assets/images/OurSpaces/4.jpg";
-import five from "../../assets/images/OurSpaces/5.jpg";
-import six from "../../assets/images/OurSpaces/6.jpg";
+import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+import one from "../../assets/images/OurSpaces/1.webp";
+import two from "../../assets/images/OurSpaces/2.webp";
+import three from "../../assets/images/OurSpaces/3.webp";
+import four from "../../assets/images/OurSpaces/4.webp";
+import five from "../../assets/images/OurSpaces/5.webp";
+import six from "../../assets/images/OurSpaces/6.webp";
 
 const Carousel = () => {
 	return (
-		<div className="flex justify-center mt-8 w-[80vw] mx-auto bg-wagmi-offwhite">
-			{/* Centering the carousel and adding margin */}
-			<div className="carousel carousel-center rounded-box px-3 md:px-6 p-4 md:p-6 border-wagmi-blue bg-wagmi-white border-[2px] md:border-[4px] border-solid shadow-lg">
-				{/* Added padding (px-6) for left and right */}
-				<div className="carousel-item pl-2">
-					<img
-						src={four}
-						alt="Image 1"
-						className="w-auto h-[300px] md:h-[400px] object-cover rounded"
-					/>
-				</div>
-				<div className="carousel-item px-2">
-					<img
-						src={two}
-						alt="Image 2"
-						className="w-auto h-[300px] md:h-[400px] object-cover rounded"
-					/>
-				</div>
-				<div className="carousel-item px-2">
-					<img
-						src={five}
-						alt="Image 3"
-						className="w-auto h-[300px] md:h-[400px] object-cover rounded"
-					/>
-				</div>
-				<div className="carousel-item px-2">
-					<img
-						src={three}
-						alt="Image 3"
-						className="w-auto h-[300px] md:h-[400px] object-cover rounded"
-					/>
-				</div>
-				<div className="carousel-item pr-2">
-					<img
-						src={one}
-						alt="Image 4"
-						className="w-auto h-[300px] md:h-[400px] object-cover rounded"
-					/>
-				</div>
-				<div className="carousel-item px-2">
-					<img
-						src={six}
-						alt="Image 3"
-						className="w-auto h-[300px] md:h-[400px] object-cover rounded"
-					/>
-				</div>
+		<div className="flex justify-center mt-8 h-[80vh] w-[80vw] mx-auto bg-wagmi-offwhite border-wagmi-blue rounded-box border-[2px] md:border-[4px] border-solid ">
+			<div className="rounded-box px-3 md:px-6 p-4 md:p-6 ">
+				<CCarousel controls>
+					<CCarouselItem>
+						<CImage
+							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							src={one}
+							alt="slide 1"
+						/>
+					</CCarouselItem>
+					<CCarouselItem>
+						<CImage
+							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							src={two}
+							alt="slide 2"
+						/>
+					</CCarouselItem>
+					<CCarouselItem>
+						<CImage
+							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							src={three}
+							alt="slide 3"
+						/>
+					</CCarouselItem>
+					<CCarouselItem>
+						<CImage
+							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							src={four}
+							alt="slide 4"
+						/>
+					</CCarouselItem>
+					<CCarouselItem>
+						<CImage
+							className="d-block  mx-auto    h-[70vh] aspect-[16/9]"
+							src={five}
+							alt="slide 5"
+						/>
+					</CCarouselItem>
+					<CCarouselItem>
+						<CImage
+							className="d-block  mx-auto    h-[70vh] aspect-[16/9]"
+							src={six}
+							alt="slide 6"
+						/>
+					</CCarouselItem>
+				</CCarousel>
 			</div>
 		</div>
 	);
