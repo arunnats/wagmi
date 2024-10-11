@@ -1,15 +1,15 @@
 @font-face {
-	font-family: "gilmer";
-	src: url("/fonts/Gilmer Medium.otf") format("opentype");
-	font-weight: medium;
-	font-style: normal;
+  font-family: "gilmer";
+  src: url("/fonts/Gilmer Medium.otf") format("opentype");
+  font-weight: medium;
+  font-style: normal;
 }
 
 @font-face {
-	font-family: "gilmer-bold";
-	src: url("/fonts/Gilmer Bold.otf") format("opentype");
-	font-weight: bold;
-	font-style: normal;
+  font-family: "gilmer-bold";
+  src: url("/fonts/Gilmer Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @tailwind base;
@@ -17,7 +17,12 @@
 @tailwind utilities;
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit !important; /* or your preferred color */
+  text-decoration: inherit !important; /* Removes underline */
 }
