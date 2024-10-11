@@ -9,47 +9,47 @@ import six from "../../assets/images/OurSpaces/6.webp";
 
 const Carousel = () => {
 	return (
-		<div className="flex justify-center mt-8 h-[80vh] w-[80vw] mx-auto bg-wagmi-offwhite border-wagmi-blue rounded-box border-[2px] md:border-[4px] border-solid ">
-			<div className="rounded-box px-3 md:px-6 p-4 md:p-6 ">
+		<div className="flex justify-center mt-8 w-[80vw] mx-auto bg-wagmi-offwhite border-wagmi-blue rounded-box border-[2px] md:border-[4px] border-solid">
+			<div className="rounded-box px-3 md:px-6 p-4 md:p-6">
 				<CCarousel controls>
 					<CCarouselItem>
 						<CImage
-							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							className="d-block w-full aspect-[16/9] object-cover"
 							src={one}
 							alt="slide 1"
 						/>
 					</CCarouselItem>
 					<CCarouselItem>
 						<CImage
-							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							className="d-block w-full aspect-[16/9] object-cover"
 							src={two}
 							alt="slide 2"
 						/>
 					</CCarouselItem>
 					<CCarouselItem>
 						<CImage
-							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							className="d-block w-full aspect-[16/9] object-cover"
 							src={three}
 							alt="slide 3"
 						/>
 					</CCarouselItem>
 					<CCarouselItem>
 						<CImage
-							className="d-block   mx-auto   h-[70vh] aspect-[16/9]"
+							className="d-block w-full aspect-[16/9] object-cover"
 							src={four}
 							alt="slide 4"
 						/>
 					</CCarouselItem>
 					<CCarouselItem>
 						<CImage
-							className="d-block  mx-auto    h-[70vh] aspect-[16/9]"
+							className="d-block w-full aspect-[16/9] object-cover"
 							src={five}
 							alt="slide 5"
 						/>
 					</CCarouselItem>
 					<CCarouselItem>
 						<CImage
-							className="d-block  mx-auto    h-[70vh] aspect-[16/9]"
+							className="d-block w-full aspect-[16/9] object-cover"
 							src={six}
 							alt="slide 6"
 						/>
