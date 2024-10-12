@@ -90,10 +90,10 @@ const Hero = () => {
           Gonna Make It.
         </h3>
         <div ref={textRef3}>
-          <h3 className="sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-5xl px-2 mt-[1.5vh] lg:mt-[5vh]">
+          <h3 className="sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl px-2 mt-[1.5vh] lg:mt-[5vh] mx-[7vw]">
             At Wagmi, we believe that collaboration
           </h3>
-          <h3 className="sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-5xl px-4">
+          <h3 className="sm:text-lg md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl px-4">
             and community are the cornerstones of success.
           </h3>
         </div>
